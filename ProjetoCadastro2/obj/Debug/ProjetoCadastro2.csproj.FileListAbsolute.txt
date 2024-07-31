@@ -1,0 +1,13 @@
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\bin\Debug\ProjetoCadastro2.exe.config
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\bin\Debug\ProjetoCadastro2.exe
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\bin\Debug\ProjetoCadastro2.pdb
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmMain.resources
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmUsuario.resources
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.Properties.Resources.resources
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.csproj.GenerateResource.cache
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.exe
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.pdb
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\bin\Debug\bdMain.mdf
+C:\Users\user\Desktop\ProjetoCadastro2\ProjetoCadastro2\bin\Debug\bdMain_log.ldf

@@ -16,5 +16,16 @@ namespace ProjetoCadastro2
         {
             InitializeComponent();
         }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuario frm = new frmUsuario();
+            frm.Show();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
