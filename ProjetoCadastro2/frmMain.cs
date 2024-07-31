@@ -27,5 +27,12 @@ namespace ProjetoCadastro2
         {
             Close();
         }
+
+        public enum FormMode
+        {
+            Visualizacao = 0,
+            Cadastro = 1,
+            Alteracao = 2
+        }
     }
 }
