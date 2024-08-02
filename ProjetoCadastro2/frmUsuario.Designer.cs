@@ -84,7 +84,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(15, 135);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 18);
+            this.label5.Size = new System.Drawing.Size(65, 24);
             this.label5.TabIndex = 2;
             this.label5.Text = "Senha";
             // 
@@ -93,7 +93,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(21, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 18);
+            this.label4.Size = new System.Drawing.Size(57, 24);
             this.label4.TabIndex = 2;
             this.label4.Text = "Login";
             // 
@@ -102,7 +102,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 18);
+            this.label3.Size = new System.Drawing.Size(52, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nível";
             // 
@@ -111,7 +111,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 18);
+            this.label2.Size = new System.Drawing.Size(62, 24);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nome";
             // 
@@ -120,7 +120,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 18);
+            this.label1.Size = new System.Drawing.Size(71, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Código";
             // 
@@ -128,9 +128,9 @@
             // 
             this.txtSenha.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "cd_senha", true));
             this.txtSenha.Enabled = false;
-            this.txtSenha.Location = new System.Drawing.Point(70, 132);
+            this.txtSenha.Location = new System.Drawing.Point(86, 132);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(117, 24);
+            this.txtSenha.Size = new System.Drawing.Size(117, 29);
             this.txtSenha.TabIndex = 5;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
@@ -148,20 +148,20 @@
             // 
             this.txtLogin.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "nm_login", true));
             this.txtLogin.Enabled = false;
-            this.txtLogin.Location = new System.Drawing.Point(70, 102);
+            this.txtLogin.Location = new System.Drawing.Point(86, 102);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(148, 24);
+            this.txtLogin.Size = new System.Drawing.Size(148, 29);
             this.txtLogin.TabIndex = 4;
             // 
             // txtNivel
             // 
             this.txtNivel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "sg_nivel", true));
             this.txtNivel.Enabled = false;
-            this.txtNivel.Location = new System.Drawing.Point(70, 72);
+            this.txtNivel.Location = new System.Drawing.Point(86, 72);
             this.txtNivel.Mask = "A";
             this.txtNivel.MinimumSize = new System.Drawing.Size(28, 24);
             this.txtNivel.Name = "txtNivel";
-            this.txtNivel.Size = new System.Drawing.Size(41, 24);
+            this.txtNivel.Size = new System.Drawing.Size(41, 29);
             this.txtNivel.TabIndex = 3;
             this.txtNivel.ValidatingType = typeof(int);
             // 
@@ -169,18 +169,18 @@
             // 
             this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "nm_usuario", true));
             this.txtNome.Enabled = false;
-            this.txtNome.Location = new System.Drawing.Point(70, 42);
+            this.txtNome.Location = new System.Drawing.Point(86, 42);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(185, 24);
+            this.txtNome.Size = new System.Drawing.Size(185, 29);
             this.txtNome.TabIndex = 2;
             // 
             // txtCodigo
             // 
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Id", true));
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(70, 12);
+            this.txtCodigo.Location = new System.Drawing.Point(86, 12);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(76, 24);
+            this.txtCodigo.Size = new System.Drawing.Size(76, 29);
             this.txtCodigo.TabIndex = 1;
             // 
             // pnlButtons
@@ -335,7 +335,7 @@
             // 
             // frmUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(535, 285);
             this.Controls.Add(this.pnlButtons);

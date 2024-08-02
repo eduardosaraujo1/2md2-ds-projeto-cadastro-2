@@ -19,7 +19,7 @@ namespace ProjetoCadastro2
             InitializeComponent();
         }
 
-        private bool FormIsValid()
+        private bool CadastroValido()
         {
             return !string.IsNullOrEmpty(txtCodigo.Text)
                 && txtNivel.MaskCompleted;
@@ -38,7 +38,7 @@ namespace ProjetoCadastro2
             return btns;
         }
 
-        private List<MaskedTextBox> GetTextBoxes()
+        private List<MaskedTextBox> GetMaskedTextBoxes()
         {
             List<MaskedTextBox> textboxes = new List<MaskedTextBox>();
             foreach (Control control in pnlContent.Controls)
@@ -55,7 +55,7 @@ namespace ProjetoCadastro2
         {
             if (mode == FormMode.Visualizacao)
             {
-                GetTextBoxes().ForEach(t => t.Enabled = false);
+                GetMaskedTextBoxes().ForEach(t => t.Enabled = false);
                 txtCodigo.Enabled = false;
 
                 GetButtons().ForEach(b => b.Enabled = true);
@@ -64,7 +64,7 @@ namespace ProjetoCadastro2
             }
             else
             {
-                GetTextBoxes().ForEach(t => t.Enabled = true);
+                GetMaskedTextBoxes().ForEach(t => t.Enabled = true);
                 txtCodigo.Enabled = false;
 
                 GetButtons().ForEach(b => b.Enabled = false);
@@ -118,19 +118,21 @@ namespace ProjetoCadastro2
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!FormIsValid())
+            if (CadastroValido())
+            {
+                usuarioBindingSource.EndEdit();
+                usuarioTableAdapter.Update(bdMainDataSet.usuario);
+                SetFormMode(FormMode.Visualizacao);
+            } else
             {
                 MessageBox.Show("O cadastro possui propriedades inválidas", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
-            usuarioBindingSource.EndEdit();
-            usuarioTableAdapter.Update(bdMainDataSet.usuario);
-            SetFormMode(FormMode.Visualizacao);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             // TODO: Porque quando cancelamos no modo Cadastro o AutoIncrement do código ainda aumenta?
+            // Soluções: Remover o autoincrement, outras soluções causam outros problemas
             usuarioBindingSource.CancelEdit();
             SetFormMode(FormMode.Visualizacao);
         }
