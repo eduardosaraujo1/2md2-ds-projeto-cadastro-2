@@ -18,6 +18,18 @@ namespace ProjetoCadastro2
         {
             InitializeComponent();
         }
+        
+        private int GetProbableNextAutoIncrement(DataTable table)
+        {
+            int nextIncr = 0;
+
+            if (table.Rows.Count > 0)
+            {
+                nextIncr = (int)table.Compute("MAX(Id)", "");
+            }
+
+            return nextIncr + 1;
+        }
 
         private bool CadastroValido()
         {
@@ -102,6 +114,9 @@ namespace ProjetoCadastro2
         {
             SetFormMode(FormMode.Cadastro);
             usuarioBindingSource.AddNew();
+            // exibir um valor de autoincrement para lidar melhor com o botão Cancelar
+            DataTable table = ((DataView)usuarioBindingSource.List).Table;
+            txtCodigo.Text = GetProbableNextAutoIncrement(table).ToString();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -120,6 +135,7 @@ namespace ProjetoCadastro2
         {
             if (CadastroValido())
             {
+                Validate();
                 usuarioBindingSource.EndEdit();
                 usuarioTableAdapter.Update(bdMainDataSet.usuario);
                 SetFormMode(FormMode.Visualizacao);
@@ -131,10 +147,18 @@ namespace ProjetoCadastro2
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            // TODO: Porque quando cancelamos no modo Cadastro o AutoIncrement do código ainda aumenta?
-            // Soluções: Remover o autoincrement, outras soluções causam outros problemas
             usuarioBindingSource.CancelEdit();
             SetFormMode(FormMode.Visualizacao);
+        }
+
+        private void frmUsuario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            btnSair_Click(sender, e);
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            SetFormMode(FormMode.Alteracao);
         }
     }
 }

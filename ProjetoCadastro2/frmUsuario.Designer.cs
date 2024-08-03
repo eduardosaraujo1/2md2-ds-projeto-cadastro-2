@@ -76,7 +76,7 @@
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
             this.pnlContent.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(535, 285);
+            this.pnlContent.Size = new System.Drawing.Size(596, 307);
             this.pnlContent.TabIndex = 0;
             // 
             // label5
@@ -202,23 +202,24 @@
             this.pnlButtons.Controls.Add(this.btnAnterior, 1, 0);
             this.pnlButtons.Controls.Add(this.btnProximo, 0, 0);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 178);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 200);
             this.pnlButtons.Margin = new System.Windows.Forms.Padding(4);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Padding = new System.Windows.Forms.Padding(6);
             this.pnlButtons.RowCount = 2;
             this.pnlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlButtons.Size = new System.Drawing.Size(535, 107);
+            this.pnlButtons.Size = new System.Drawing.Size(596, 107);
             this.pnlButtons.TabIndex = 1;
             // 
             // btnSair
             // 
+            this.btnSair.AutoSize = true;
             this.btnSair.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSair.Location = new System.Drawing.Point(426, 57);
+            this.btnSair.Location = new System.Drawing.Point(474, 57);
             this.btnSair.Margin = new System.Windows.Forms.Padding(4);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(99, 40);
+            this.btnSair.Size = new System.Drawing.Size(112, 40);
             this.btnSair.TabIndex = 9;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -226,33 +227,36 @@
             // 
             // btnImprimir
             // 
+            this.btnImprimir.AutoSize = true;
             this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnImprimir.Location = new System.Drawing.Point(322, 57);
+            this.btnImprimir.Location = new System.Drawing.Point(358, 57);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(96, 40);
+            this.btnImprimir.Size = new System.Drawing.Size(108, 40);
             this.btnImprimir.TabIndex = 8;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
             // btnPesquisar
             // 
+            this.btnPesquisar.AutoSize = true;
             this.btnPesquisar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPesquisar.Location = new System.Drawing.Point(218, 57);
+            this.btnPesquisar.Location = new System.Drawing.Point(242, 57);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(96, 40);
+            this.btnPesquisar.Size = new System.Drawing.Size(108, 40);
             this.btnPesquisar.TabIndex = 7;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.AutoSize = true;
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancelar.Location = new System.Drawing.Point(114, 57);
+            this.btnCancelar.Location = new System.Drawing.Point(126, 57);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(96, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(108, 40);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -260,11 +264,12 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.AutoSize = true;
             this.btnSalvar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalvar.Location = new System.Drawing.Point(10, 57);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(96, 40);
+            this.btnSalvar.Size = new System.Drawing.Size(108, 40);
             this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -272,11 +277,12 @@
             // 
             // btnExcluir
             // 
+            this.btnExcluir.AutoSize = true;
             this.btnExcluir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExcluir.Location = new System.Drawing.Point(426, 10);
+            this.btnExcluir.Location = new System.Drawing.Point(474, 10);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(99, 39);
+            this.btnExcluir.Size = new System.Drawing.Size(112, 39);
             this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -284,22 +290,25 @@
             // 
             // btnAlterar
             // 
+            this.btnAlterar.AutoSize = true;
             this.btnAlterar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAlterar.Location = new System.Drawing.Point(322, 10);
+            this.btnAlterar.Location = new System.Drawing.Point(358, 10);
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(96, 39);
+            this.btnAlterar.Size = new System.Drawing.Size(108, 39);
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
+            this.btnNovo.AutoSize = true;
             this.btnNovo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNovo.Location = new System.Drawing.Point(218, 10);
+            this.btnNovo.Location = new System.Drawing.Point(242, 10);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(96, 39);
+            this.btnNovo.Size = new System.Drawing.Size(108, 39);
             this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -307,11 +316,12 @@
             // 
             // btnAnterior
             // 
+            this.btnAnterior.AutoSize = true;
             this.btnAnterior.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAnterior.Location = new System.Drawing.Point(114, 10);
+            this.btnAnterior.Location = new System.Drawing.Point(126, 10);
             this.btnAnterior.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(96, 39);
+            this.btnAnterior.Size = new System.Drawing.Size(108, 39);
             this.btnAnterior.TabIndex = 1;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
@@ -319,11 +329,12 @@
             // 
             // btnProximo
             // 
+            this.btnProximo.AutoSize = true;
             this.btnProximo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProximo.Location = new System.Drawing.Point(10, 10);
             this.btnProximo.Margin = new System.Windows.Forms.Padding(4);
             this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(96, 39);
+            this.btnProximo.Size = new System.Drawing.Size(108, 39);
             this.btnProximo.TabIndex = 0;
             this.btnProximo.Text = "Próximo";
             this.btnProximo.UseVisualStyleBackColor = true;
@@ -337,11 +348,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 285);
+            this.ClientSize = new System.Drawing.Size(596, 307);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlContent);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(614, 354);
             this.Name = "frmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gerenciar Usuários";
@@ -351,6 +363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdMainDataSet)).EndInit();
             this.pnlButtons.ResumeLayout(false);
+            this.pnlButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }
