@@ -60,6 +60,7 @@ namespace ProjetoCadastro2
             string page = pagesRelUsuario[curPageUsuario];
             g.DrawString(page, font, color, margins);
 
+            // if nextPage is not last page
             if (++curPageUsuario < pagesRelUsuario.Count)
             {
                 e.HasMorePages = true;
