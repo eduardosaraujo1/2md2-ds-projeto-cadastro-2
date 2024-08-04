@@ -91,7 +91,6 @@
             idLabel.Size = new System.Drawing.Size(61, 20);
             idLabel.TabIndex = 2;
             idLabel.Text = "Código";
-            idLabel.Click += new System.EventHandler(this.idLabel_Click);
             // 
             // nm_clienteLabel
             // 
@@ -137,7 +136,6 @@
             sg_estadoLabel.Size = new System.Drawing.Size(61, 20);
             sg_estadoLabel.TabIndex = 11;
             sg_estadoLabel.Text = "Estado";
-            sg_estadoLabel.Click += new System.EventHandler(this.sg_estadoLabel_Click);
             // 
             // cd_cepLabel
             // 
@@ -355,7 +353,6 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(88, 27);
             this.txtCodigo.TabIndex = 3;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.idTextBox_TextChanged);
             // 
             // txtNome
             // 
@@ -399,7 +396,6 @@
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(39, 27);
             this.txtEstado.TabIndex = 12;
-            this.txtEstado.TextChanged += new System.EventHandler(this.sg_estadoTextBox_TextChanged);
             // 
             // txtCep
             // 
@@ -475,7 +471,6 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(740, 325);
             this.pnlContent.TabIndex = 23;
-            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
             // frmCliente
             // 
@@ -487,7 +482,7 @@
             this.MinimumSize = new System.Drawing.Size(758, 488);
             this.Name = "frmCliente";
             this.Text = "frmCliente";
-            this.Load += new System.EventHandler(this.frmCliente_Load_1);
+            this.Load += new System.EventHandler(this.frmCliente_Load);
             this.pnlButtons.ResumeLayout(false);
             this.pnlButtons.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdMainDataSet)).EndInit();

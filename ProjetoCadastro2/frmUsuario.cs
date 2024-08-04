@@ -31,13 +31,6 @@ namespace ProjetoCadastro2
             return nextIncr + 1;
         }
 
-        private bool CadastroValido()
-        {
-            // TODO: Move this to a validating event
-            return !string.IsNullOrEmpty(txtCodigo.Text)
-                && txtNivel.MaskCompleted;
-        }
-
         private List<Button> GetButtons()
         {
             List<Button> btns = new List<Button>();
@@ -90,9 +83,7 @@ namespace ProjetoCadastro2
 
         private void frmUsuario_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'bdMainDataSet.usuario'. Você pode movê-la ou removê-la conforme necessário.
             this.usuarioTableAdapter.Fill(this.bdMainDataSet.usuario);
-
             SetFormMode(FormMode.Visualizacao);
         }
 
@@ -132,22 +123,28 @@ namespace ProjetoCadastro2
             }
         }
 
+        private void frmUsuario_Validating(object sender, CancelEventArgs e)
+        {
+            e.Cancel = NotNulValidate(txtCodigo.Text)
+                       && VarcharValidate(txtNome.Text, 45)
+                       && CharValidate(txtNivel.Text, 1)
+                       && VarcharValidate(txtLogin.Text, 45)
+                       && VarcharValidate(txtSenha.Text, 45);
+            bool NotNulValidate(string s) => !string.IsNullOrEmpty(s);
+            bool VarcharValidate(string s, int maxLength) => s.Length <= maxLength;
+            bool CharValidate(string s, int length) => s.Length.Equals(length);
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!Validate() || !CadastroValido())
-            {
-                MessageBox.Show("O cadastro possui propriedades inválidas", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            try
+            if (Validate())
             {
                 usuarioBindingSource.EndEdit();
                 usuarioTableAdapter.Update(bdMainDataSet.usuario);
             }
-            catch (ArgumentException)
+            else
             {
                 MessageBox.Show("O cadastro possui propriedades inválidas", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
             SetFormMode(FormMode.Visualizacao);
         }

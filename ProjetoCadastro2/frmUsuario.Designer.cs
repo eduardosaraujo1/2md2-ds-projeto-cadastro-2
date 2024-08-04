@@ -379,6 +379,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gerenciar Usuários";
             this.Load += new System.EventHandler(this.frmUsuario_Load);
+            this.Validating += new System.ComponentModel.CancelEventHandler(this.frmUsuario_Validating);
             this.pnlContent.ResumeLayout(false);
             this.pnlContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();

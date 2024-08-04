@@ -51,29 +51,31 @@ namespace ProjetoCadastro2
         /// <summary>
         /// Stringifies a table row by concatenating them side by side
         /// </summary>
-        /// <param name="getRowContent">Expression modifies what will be concatenated in the string, could be column name or column data</param>
+        /// <param name="getColumnContent">Expression modifies what will be concatenated in the string, could be column name or column data</param>
         /// <returns></returns>
-        private string ConcatTableColumns(Func<TableColumn, string> getRowContent)
+        private string ConcatTableColumns(Func<TableColumn, string> getColumnContent)
         {
             string row = string.Empty;
-            string data;
-            int currentCharPos = 0;
+            string col;
+            int currentLineLength = 0;
             foreach (TableColumn column in columns)
             {
-                bool columnOverflows = currentCharPos + column.width > RelatorioPrefs.PAGE_LINE_LENGTH;
-                if (columnOverflows)
+                bool columnWillOverflow = currentLineLength + column.width > RelatorioPrefs.PAGE_LINE_LENGTH;
+                if (columnWillOverflow)
                 {
                     // break the column into a new line
                     row += '\n';
-                    currentCharPos = 0;
+                    currentLineLength = 0;
                 }
+
                 // draw the column and update new line length
-                data = getRowContent(column);
-                data = string.Concat(data.Take(column.width - 1)); // Cuts the string so it is one shorter than the column width, now it does not overflow
-                row += data.PadRight(column.width);
-                currentCharPos += column.width;
+                col = getColumnContent(column);
+                col = Truncate(col, column.width - 1).PadRight(column.width); // -1 adds the column separator
+                row += col;
+                currentLineLength += col.Length; // track how long the current line is
             }
             return row;
+            string Truncate(string str, int size) => string.Concat(str.Take(size));
         }
         private string WriteTableHeader()
         {
