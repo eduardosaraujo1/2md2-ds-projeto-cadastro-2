@@ -36,8 +36,8 @@
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatorioUsuariosToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fornecedoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.RelatorioClientesToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatorioFornecedoresToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relUsuarioPD = new System.Drawing.Printing.PrintDocument();
             this.relUsuarioPPD = new System.Windows.Forms.PrintPreviewDialog();
@@ -72,28 +72,29 @@
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             // 
             // relatórioToolStripMenuItem
             // 
             this.relatórioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.relatorioUsuariosToolStrip,
-            this.clientesToolStripMenuItem1,
-            this.fornecedoresToolStripMenuItem1});
+            this.RelatorioClientesToolStrip,
+            this.relatorioFornecedoresToolStrip});
             this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
             this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.relatórioToolStripMenuItem.Text = "Relatórios";
@@ -103,19 +104,20 @@
             this.relatorioUsuariosToolStrip.Name = "relatorioUsuariosToolStrip";
             this.relatorioUsuariosToolStrip.Size = new System.Drawing.Size(224, 26);
             this.relatorioUsuariosToolStrip.Text = "Usuários";
-            this.relatorioUsuariosToolStrip.Click += new System.EventHandler(this.usuáriosToolStripMenuItem1_Click);
+            this.relatorioUsuariosToolStrip.Click += new System.EventHandler(this.relatorioUsuariosToolStrip_Click);
             // 
-            // clientesToolStripMenuItem1
+            // RelatorioClientesToolStrip
             // 
-            this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.clientesToolStripMenuItem1.Text = "Clientes";
+            this.RelatorioClientesToolStrip.Name = "RelatorioClientesToolStrip";
+            this.RelatorioClientesToolStrip.Size = new System.Drawing.Size(224, 26);
+            this.RelatorioClientesToolStrip.Text = "Clientes";
             // 
-            // fornecedoresToolStripMenuItem1
+            // relatorioFornecedoresToolStrip
             // 
-            this.fornecedoresToolStripMenuItem1.Name = "fornecedoresToolStripMenuItem1";
-            this.fornecedoresToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.fornecedoresToolStripMenuItem1.Text = "Fornecedores";
+            this.relatorioFornecedoresToolStrip.Name = "relatorioFornecedoresToolStrip";
+            this.relatorioFornecedoresToolStrip.Size = new System.Drawing.Size(224, 26);
+            this.relatorioFornecedoresToolStrip.Text = "Fornecedores";
+            this.relatorioFornecedoresToolStrip.Click += new System.EventHandler(this.relatorioFornecedoresToolStrip_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -151,7 +153,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Projeto Cadastro";
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -172,8 +174,8 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatorioUsuariosToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem RelatorioClientesToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem relatorioFornecedoresToolStrip;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Drawing.Printing.PrintDocument relUsuarioPD;
         private System.Windows.Forms.PrintPreviewDialog relUsuarioPPD;

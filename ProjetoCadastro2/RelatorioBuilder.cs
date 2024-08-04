@@ -8,27 +8,12 @@ using System.Windows.Forms;
 
 namespace ProjetoCadastro2
 {
-    public class RelatorioPagina
-    {
-        private int pageNumber;
-        private string pageTitle;
-        public string PageString { get; private set; } = "";
-        public RelatorioPagina(int pageNumber, string pageTitle)
-        {
-            this.pageNumber = pageNumber;
-            this.pageTitle = pageTitle;
-        }
-
-    }
     public class RelatorioBuilder
     {
-        private List<TableColumn> columns;
-        private string relatorioTitle;
+        private readonly List<TableColumn> columns;
+        private readonly BindingSource bindingSource;
 
-        //private bdMainDataSet dataset;
-        //private bdMainDataSetTableAdapters.usuarioTableAdapter adapter;
-        //private BindingSource bindingSource;
-        private DataTable dataTable;
+        private readonly DataTable dataTable;
         struct TableColumn
         {
             // propreties
@@ -37,15 +22,16 @@ namespace ProjetoCadastro2
             public int width;
         }
         
-        public RelatorioBuilder(string relatorioTitle, bdMainDataSet dataset)
+        public RelatorioBuilder(bdMainDataSet dataset)
         {
             columns = new List<TableColumn>();
-            this.relatorioTitle = relatorioTitle;
 
             // read database
             bdMainDataSetTableAdapters.usuarioTableAdapter adapter = new bdMainDataSetTableAdapters.usuarioTableAdapter();
-            BindingSource bindingSource = new BindingSource();
-            bindingSource.DataSource = dataset.usuario; // usuario is the table
+            bindingSource = new BindingSource
+            {
+                DataSource = dataset.usuario // usuario is the table
+            };
             adapter.Fill(dataset.usuario);
 
             dataTable = bindingSource.DataSource as DataTable;
@@ -94,11 +80,11 @@ namespace ProjetoCadastro2
             return ConcatTableColumns(column => column.name); // expression gets column name and concatenates it with line wrapping
         }
 
-        private string WritePageHeader(int pageNumber)
+        private string WritePageHeader(string pageTitle, int pageNumber)
         {
             string header = "ETEC ADOLPHO BEREZIN\n";
-            header += relatorioTitle;
-            header += $"Pág: {pageNumber.ToString("D2")}".PadLeft(RelatorioPrefs.PAGE_LINE_LENGTH - relatorioTitle.Length) + '\n'; // PadLeft para alinhar pág a direita
+            header += pageTitle;
+            header += $"Pág: {pageNumber:D2}".PadLeft(RelatorioPrefs.PAGE_LINE_LENGTH - pageTitle.Length) + '\n'; // PadLeft para alinhar pág a direita
             header += new string('-', RelatorioPrefs.PAGE_LINE_LENGTH) + '\n';
             header += WriteTableHeader() + '\n';
             header += new string('-', RelatorioPrefs.PAGE_LINE_LENGTH) + '\n';
@@ -112,9 +98,9 @@ namespace ProjetoCadastro2
         }
 
         int currentIndex = 0;
-        private string WritePage(int pageNumber)
+        private string WritePage(string pageTitle, int pageNumber)
         {
-            string page = WritePageHeader(pageNumber);
+            string page = WritePageHeader(pageTitle, pageNumber);
             string newRow;
             int currentLine = GetStringLineCount(page) + 1;
             while (!ReachedEndOfPage())
@@ -132,20 +118,20 @@ namespace ProjetoCadastro2
         /// <summary>
         /// Uses the data given to the object to generate a list of strings that can be drawn to a page using Graphics.DrawString
         /// </summary>
-        /// <returns>A list of relatorio pages</returns>
-        public List<string> Write()
+        /// <returns>Array of relatorio pages, each page a string</returns>
+        public string[] Write(string title)
         {
             List<string> pages = new List<string>();
             string page;
             int pageNumber = 1;
-            // while not written all the rows in the dataTable...
+            // do while not written all the rows in the dataTable
             do
             {
-                page = WritePage(pageNumber++);
+                page = WritePage(title, pageNumber++);
                 pages.Add(page);
             } while (currentIndex < dataTable.Rows.Count);
 
-            return pages;
+            return pages.ToArray();
         }
 
         static int GetStringLineCount(string text)

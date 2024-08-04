@@ -25,3 +25,4 @@ C:\Users\rodaguJ\Desktop\Projects\escola\DS\3 bim\2md2-ds-projeto-cadastro-2\Pro
 C:\Users\rodaguJ\Desktop\Projects\escola\DS\3 bim\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.exe
 C:\Users\rodaguJ\Desktop\Projects\escola\DS\3 bim\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.pdb
 C:\Users\rodaguJ\Desktop\Projects\escola\DS\3 bim\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmPesquisa.resources
+C:\Users\rodaguJ\Desktop\Projects\escola\DS\3 bim\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmCliente.resources

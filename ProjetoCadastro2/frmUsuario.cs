@@ -33,6 +33,7 @@ namespace ProjetoCadastro2
 
         private bool CadastroValido()
         {
+            // TODO: Move this to a validating event
             return !string.IsNullOrEmpty(txtCodigo.Text)
                 && txtNivel.MaskCompleted;
         }
@@ -210,9 +211,8 @@ namespace ProjetoCadastro2
 
         private int FindIndexOfSearchQuery(BindingSource bsource, string searchQuery, string columnName)
         {
-            DataView tableView = usuarioBindingSource.List as DataView;
             string searchQueryFiltered = searchQuery.ToLower().Trim();
-            if (tableView == null) return -1;
+            if (!(usuarioBindingSource.List is DataView tableView)) return -1;
 
             for (int i = 0; i < tableView.Table.Rows.Count; i++)
             {
@@ -239,6 +239,5 @@ namespace ProjetoCadastro2
                 MessageBox.Show($"Nenhuma pessoa com o nome {searchQuery} foi encontrada", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
     }
 }

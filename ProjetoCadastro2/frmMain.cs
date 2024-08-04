@@ -23,6 +23,11 @@ namespace ProjetoCadastro2
             frm.Show();
         }
 
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -35,23 +40,26 @@ namespace ProjetoCadastro2
             Alteracao = 2
         }
 
-        private void usuáriosToolStripMenuItem1_Click(object sender, EventArgs e)
+        // Relatorios
+        private void relatorioUsuariosToolStrip_Click(object sender, EventArgs e)
         {
             // gerando relatório
-            RelatorioBuilder relatorio = new RelatorioBuilder("Relatório de Usuários", bdMainDataSet);
+            RelatorioBuilder relatorio = new RelatorioBuilder(bdMainDataSet);
             relatorio.AddColumn("Id", "Código", 7);
             relatorio.AddColumn("nm_usuario", "Nome", 40);
             relatorio.AddColumn("sg_nivel", "Nível", 6);
             relatorio.AddColumn("nm_login", "Login", 20);
-            pagesRelUsuario = relatorio.Write();
+
+            // imprimindo
+            pagesRelUsuario = relatorio.Write("Relatório de Usuários");
             relUsuarioPPD.ShowDialog();
         }
 
-        List<string> pagesRelUsuario;
+        string[] pagesRelUsuario;
         int curPageUsuario = 0;
         private void relUsuarioPD_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            if (pagesRelUsuario.Count <= 0) return;
+            if (pagesRelUsuario.Length <= 0) return;
             Graphics g = e.Graphics;
             Font font = RelatorioPrefs.FONT;
             Brush color = RelatorioPrefs.BRUSH_COLOR;
@@ -61,7 +69,7 @@ namespace ProjetoCadastro2
             g.DrawString(page, font, color, margins);
 
             // if nextPage is not last page
-            if (++curPageUsuario < pagesRelUsuario.Count)
+            if (++curPageUsuario < pagesRelUsuario.Length)
             {
                 e.HasMorePages = true;
                 return;
@@ -72,11 +80,16 @@ namespace ProjetoCadastro2
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            if (RelatorioPrefs.UseDummyData)
+            if (DummyDataGenerator.ENABLED)
             {
-                DummyDataGenerator dg = new DummyDataGenerator(100);
+                DummyDataGenerator dg = new DummyDataGenerator();
                 dg.GenerateAll();
             }
+        }
+
+        private void relatorioFornecedoresToolStrip_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
