@@ -77,13 +77,15 @@ namespace ProjetoCadastro2
                 bool columnOverflows = currentCharPos + column.width > RelatorioPrefs.PAGE_LINE_LENGTH;
                 if (columnOverflows)
                 {
+                    // break the column into a new line
                     row += '\n';
                     currentCharPos = 0;
                 }
-                currentCharPos += column.width;
+                // draw the column and update new line length
                 data = getRowContent(column);
                 data = string.Concat(data.Take(column.width - 1)); // Cuts the string so it is one shorter than the column width, now it does not overflow
                 row += data.PadRight(column.width);
+                currentCharPos += column.width;
             }
             return row;
         }
@@ -113,11 +115,14 @@ namespace ProjetoCadastro2
         private string WritePage(int pageNumber)
         {
             string page = WritePageHeader(pageNumber);
-            int currentLine = GetStringLineCount(page);
+            string newRow;
+            int currentLine = GetStringLineCount(page) + 1;
             while (!ReachedEndOfPage())
             {
-                page += WritePageRow(currentIndex++);
-                currentLine++;
+                newRow = WritePageRow(currentIndex++);
+                
+                page += newRow;
+                currentLine += GetStringLineCount(newRow);
             }
             
             return page;
@@ -150,7 +155,7 @@ namespace ProjetoCadastro2
             {
                 if (c == '\n') count++; 
             }
-            return count + 1; 
+            return count; 
         }
     }
 }
