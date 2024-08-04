@@ -16,5 +16,7 @@ namespace ProjetoCadastro2
         public static Font FONT = new Font("Courier New", 10);
         public static Brush BRUSH_COLOR = Brushes.Black;
         public static PointF DRAW_ANCHOR = new PointF(MARGIN_LEFT, MARGIN_TOP);
+
+        public static bool UseDummyData = true;
     }
 }

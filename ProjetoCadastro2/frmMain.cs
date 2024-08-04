@@ -38,7 +38,7 @@ namespace ProjetoCadastro2
         private void usuáriosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // gerando relatório
-            RelatorioBuilder relatorio = new RelatorioBuilder("Relatório de Usuários");
+            RelatorioBuilder relatorio = new RelatorioBuilder("Relatório de Usuários", bdMainDataSet);
             relatorio.AddColumn("Id", "Código", 7);
             relatorio.AddColumn("nm_usuario", "Nome", 40);
             relatorio.AddColumn("sg_nivel", "Nível", 6);
@@ -67,27 +67,15 @@ namespace ProjetoCadastro2
             }
 
             curPageUsuario = 0;
-
-            // DrawHeader
-            // DrawRow 
-            // RowWidth & RowHeight
-            // How it should work:
-            // Relatorio relatorio = new Relatorio(bindingSource);
-            // RelatorioColumn = new RelatorioColumn()
-            // {
-            //  name,
-            //  bindingSourceColumn,
-            //  width,
-            // }
-            //  relatorio.AddColumn(column)
-            // 
-            // 
-            // use the datatype varchar length to define what length the table columns should have.
         }
 
-        private void DrawReportHeader(Graphics g, string pageContent)
+        private void frmMain_Load(object sender, EventArgs e)
         {
-            
+            if (RelatorioPrefs.UseDummyData)
+            {
+                DummyDataGenerator dg = new DummyDataGenerator(100);
+                dg.GenerateAll();
+            }
         }
     }
 }

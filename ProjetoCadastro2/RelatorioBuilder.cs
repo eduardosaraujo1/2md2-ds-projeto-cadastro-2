@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProjetoCadastro2
 {
@@ -22,6 +24,11 @@ namespace ProjetoCadastro2
     {
         private List<TableColumn> columns;
         private string relatorioTitle;
+
+        //private bdMainDataSet dataset;
+        //private bdMainDataSetTableAdapters.usuarioTableAdapter adapter;
+        //private BindingSource bindingSource;
+        private DataTable dataTable;
         struct TableColumn
         {
             // propreties
@@ -30,10 +37,18 @@ namespace ProjetoCadastro2
             public int width;
         }
         
-        public RelatorioBuilder(string relatorioTitle)
+        public RelatorioBuilder(string relatorioTitle, bdMainDataSet dataset)
         {
             columns = new List<TableColumn>();
             this.relatorioTitle = relatorioTitle;
+
+            // read database
+            bdMainDataSetTableAdapters.usuarioTableAdapter adapter = new bdMainDataSetTableAdapters.usuarioTableAdapter();
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = dataset.usuario; // usuario is the table
+            adapter.Fill(dataset.usuario);
+
+            dataTable = bindingSource.DataSource as DataTable;
         }
 
         public void AddColumn(string columnId, string columnName, int columnWidth)
@@ -47,22 +62,34 @@ namespace ProjetoCadastro2
             columns.Add(column);
         }
 
-        private string WriteTableHeader()
+        /// <summary>
+        /// Stringifies a table row by concatenating them side by side
+        /// </summary>
+        /// <param name="getRowContent">Expression modifies what will be concatenated in the string, could be column name or column data</param>
+        /// <returns></returns>
+        private string ConcatTableColumns(Func<TableColumn, string> getRowContent)
         {
-            string tableHeader = string.Empty;
+            string row = string.Empty;
+            string data;
             int currentCharPos = 0;
             foreach (TableColumn column in columns)
             {
                 bool columnOverflows = currentCharPos + column.width > RelatorioPrefs.PAGE_LINE_LENGTH;
                 if (columnOverflows)
                 {
-                    tableHeader += '\n';
+                    row += '\n';
                     currentCharPos = 0;
                 }
                 currentCharPos += column.width;
-                tableHeader += column.name.PadRight(column.width);
+                data = getRowContent(column);
+                data = string.Concat(data.Take(column.width - 1)); // Cuts the string so it is one shorter than the column width, now it does not overflow
+                row += data.PadRight(column.width);
             }
-            return tableHeader;
+            return row;
+        }
+        private string WriteTableHeader()
+        {
+            return ConcatTableColumns(column => column.name); // expression gets column name and concatenates it with line wrapping
         }
 
         private string WritePageHeader(int pageNumber)
@@ -76,15 +103,25 @@ namespace ProjetoCadastro2
             return header;
         }
 
-        /// <summary>
-        /// Generates a string composing a single page of Relatorio.
-        /// </summary>
-        /// <param name="pageNumber">Page number to display in page header</param>
-        /// <returns></returns>
+        private string WritePageRow(int rowIndex)
+        {
+            DataRow pageRow = dataTable.Rows[rowIndex];
+            return ConcatTableColumns(column => pageRow[column.id].ToString()) + '\n'; // expression gets content in the table cell and concatenates it with line wrapping
+        }
+
+        int currentIndex = 0;
         private string WritePage(int pageNumber)
         {
             string page = WritePageHeader(pageNumber);
+            int currentLine = GetStringLineCount(page);
+            while (!ReachedEndOfPage())
+            {
+                page += WritePageRow(currentIndex++);
+                currentLine++;
+            }
+            
             return page;
+            bool ReachedEndOfPage() => currentLine > RelatorioPrefs.PAGE_LINE_COUNT || currentIndex >= dataTable.Rows.Count;
         }
 
         /// <summary>
@@ -94,8 +131,26 @@ namespace ProjetoCadastro2
         public List<string> Write()
         {
             List<string> pages = new List<string>();
-            pages.Add(WritePage(0));
+            string page;
+            int pageNumber = 1;
+            // while not written all the rows in the dataTable...
+            do
+            {
+                page = WritePage(pageNumber++);
+                pages.Add(page);
+            } while (currentIndex < dataTable.Rows.Count);
+
             return pages;
+        }
+
+        static int GetStringLineCount(string text)
+        {
+            int count = 0;
+            foreach (char c in text)
+            {
+                if (c == '\n') count++; 
+            }
+            return count + 1; 
         }
     }
 }

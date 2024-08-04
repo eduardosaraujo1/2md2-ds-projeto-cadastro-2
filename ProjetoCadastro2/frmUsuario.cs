@@ -239,5 +239,6 @@ namespace ProjetoCadastro2
                 MessageBox.Show($"Nenhuma pessoa com o nome {searchQuery} foi encontrada", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
     }
 }

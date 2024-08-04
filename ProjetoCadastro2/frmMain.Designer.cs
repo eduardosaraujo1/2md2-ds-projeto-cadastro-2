@@ -41,7 +41,9 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relUsuarioPD = new System.Drawing.Printing.PrintDocument();
             this.relUsuarioPPD = new System.Windows.Forms.PrintPreviewDialog();
+            this.bdMainDataSet = new ProjetoCadastro2.bdMainDataSet();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdMainDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -137,6 +139,11 @@
             this.relUsuarioPPD.Name = "relUsuarioPPD";
             this.relUsuarioPPD.Visible = false;
             // 
+            // bdMainDataSet
+            // 
+            this.bdMainDataSet.DataSetName = "bdMainDataSet";
+            this.bdMainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -147,8 +154,10 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.Text = "Projeto Cadastro";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdMainDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +177,7 @@
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Drawing.Printing.PrintDocument relUsuarioPD;
         private System.Windows.Forms.PrintPreviewDialog relUsuarioPPD;
+        private bdMainDataSet bdMainDataSet;
     }
 }
 
