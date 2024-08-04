@@ -19,7 +19,7 @@ namespace ProjetoCadastro2
             InitializeComponent();
         }
         
-        private int GetProbableNextAutoIncrement(DataTable table)
+        private int GetNextAutoIncrement(DataTable table)
         {
             int nextIncr = 0;
 
@@ -116,7 +116,7 @@ namespace ProjetoCadastro2
             usuarioBindingSource.AddNew();
             // exibir um valor de autoincrement para lidar melhor com o botão Cancelar
             DataTable table = ((DataView)usuarioBindingSource.List).Table;
-            txtCodigo.Text = GetProbableNextAutoIncrement(table).ToString();
+            txtCodigo.Text = GetNextAutoIncrement(table).ToString();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -133,11 +133,6 @@ namespace ProjetoCadastro2
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            //if (CadastroValido())
-            //{
-            //} else
-            //{
-            //}
             if (!Validate() || !CadastroValido())
             {
                 MessageBox.Show("O cadastro possui propriedades inválidas", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -243,11 +238,6 @@ namespace ProjetoCadastro2
             {
                 MessageBox.Show($"Nenhuma pessoa com o nome {searchQuery} foi encontrada", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            usuarioBindingSource.Position = 1;
         }
     }
 }
