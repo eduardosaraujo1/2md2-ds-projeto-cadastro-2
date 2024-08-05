@@ -515,7 +515,7 @@
             this.MinimumSize = new System.Drawing.Size(758, 488);
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmCliente";
+            this.Text = "Gerenciar Clientes";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             this.pnlButtons.ResumeLayout(false);
             this.pnlButtons.PerformLayout();

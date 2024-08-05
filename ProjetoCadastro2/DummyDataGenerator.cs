@@ -69,8 +69,8 @@ namespace ProjetoCadastro2
                 rowView["nm_cidade"] = RandomString(10, 30);
                 rowView["sg_estado"] = RandomString(2, chars_letters);
                 rowView["cd_cep"] = RandomString(9, chars_numbers);
-                rowView["cd_cpf"] = RandomString(14, chars_numbers);
-                rowView["cd_rg"] = RandomString(15, chars_numbers);
+                rowView["cd_cpf"] = RandomString(11, chars_numbers);
+                rowView["cd_rg"] = RandomString(9, chars_numbers);
                 rowView["nr_telefone"] = RandomString(13, chars_numbers);
                 rowView["email"] = RandomString(10, 40);
 
@@ -92,8 +92,8 @@ namespace ProjetoCadastro2
                 rowView["nm_cidade"] = RandomString(10, 30);
                 rowView["sg_estado"] = RandomString(2, chars_letters);
                 rowView["cd_cep"] = RandomString(9, chars_numbers);
-                rowView["cd_cnpj"] = RandomString(18, chars_numbers);
-                rowView["cd_inscr_estadual"] = RandomString(15, chars_numbers);
+                rowView["cd_cnpj"] = RandomString(14, chars_numbers);
+                rowView["cd_inscr_estadual"] = RandomString(12, chars_numbers);
 
                 fornecedorSource.EndEdit();
                 fornecedorTableAdapter.Update(dataset.fornecedor);
@@ -104,7 +104,7 @@ namespace ProjetoCadastro2
         {
             GenerateUsuarios();
             GenerateClientes();
-            //GenerateFornecedores();
+            GenerateFornecedores();
         }
 
         const string chars_alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

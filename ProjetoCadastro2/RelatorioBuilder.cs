@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,10 @@ namespace ProjetoCadastro2
 
                 // draw the column and update new line length
                 col = getColumnContent(column);
+                if (col.Length > column.width)
+                {
+                    //Debugger.Break();
+                }
                 col = Truncate(col, column.width - 1).PadRight(column.width); // -1 adds the column separator
                 row += col;
                 currentLineLength += col.Length; // track how long the current line is
@@ -121,11 +126,11 @@ namespace ProjetoCadastro2
             string page;
             int pageNumber = 1;
             // do while not written all the rows in the dataTable
-            do
+            while (currentIndex < dataTable.Rows.Count)
             {
                 page = WritePage(title, pageNumber++);
                 pages.Add(page);
-            } while (currentIndex < dataTable.Rows.Count);
+            }
 
             return pages.ToArray();
         }
