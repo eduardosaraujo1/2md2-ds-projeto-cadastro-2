@@ -12,6 +12,7 @@ namespace ProjetoCadastro2
 {
     public partial class frmMain : Form
     {
+        public DummyDataGenerator dataGenerator = new DummyDataGenerator();
         public frmMain()
         {
             InitializeComponent();
@@ -19,11 +20,7 @@ namespace ProjetoCadastro2
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            if (DummyDataGenerator.ENABLED)
-            {
-                DummyDataGenerator dg = new DummyDataGenerator();
-                dg.GenerateAll();
-            }
+            timer_Tick(null, null);
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,24 +45,16 @@ namespace ProjetoCadastro2
             frm.Show();
         }
 
-
-        private void RefillDataSet()
+        #region Relatórios
+        string[] relatorioPages;
+        int curPage = 0;
+        private void RefillRelatorioDataSet()
         {
             this.usuarioTableAdapter.Fill(this.bdMainDataSet.usuario);
             this.clienteTableAdapter.Fill(this.bdMainDataSet.cliente);
             this.fornecedorTableAdapter.Fill(this.bdMainDataSet.fornecedor);
         }
 
-        public enum FormMode
-        {
-            Visualizacao = 0,
-            Cadastro = 1,
-            Alteracao = 2
-        }
-
-        #region Relatórios
-        string[] relatorioPages;
-        int curPage = 0;
         private void PrintRelatorio(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             if (relatorioPages.Length <= 0) return;
@@ -90,7 +79,7 @@ namespace ProjetoCadastro2
         private void relatorioUsuariosToolStrip_Click(object sender, EventArgs e)
         {
             // gerando relatório
-            RefillDataSet();
+            RefillRelatorioDataSet();
             RelatorioBuilder relatorio = new RelatorioBuilder(usuarioSource);
             relatorio.AddColumn("Id", "Código", 7);
             relatorio.AddColumn("nm_usuario", "Nome", 35);
@@ -109,7 +98,7 @@ namespace ProjetoCadastro2
         private void RelatorioClientesToolStrip_Click(object sender, EventArgs e)
         {
             // gerando relatório
-            RefillDataSet();
+            RefillRelatorioDataSet();
             RelatorioBuilder relatorio = new RelatorioBuilder(clienteSource);
             relatorio.AddColumn("Id", "Código", 7);
             relatorio.AddColumn("nm_cliente", "Nome", 35);
@@ -133,7 +122,7 @@ namespace ProjetoCadastro2
         private void relatorioFornecedoresToolStrip_Click(object sender, EventArgs e)
         {
             // gerando relatório
-            RefillDataSet();
+            RefillRelatorioDataSet();
             RelatorioBuilder relatorio = new RelatorioBuilder(fornecedorSource);
             relatorio.AddColumn("Id", "Código", 7);
             relatorio.AddColumn("nm_fornecedor", "Nome", 35);
@@ -155,5 +144,39 @@ namespace ProjetoCadastro2
         }
         #endregion
 
+
+        public enum FormMode
+        {
+            Visualizacao = 0,
+            Cadastro = 1,
+            Alteracao = 2
+        }
+
+        private void fiveRegisters_Click(object sender, EventArgs e)
+        {
+            dataGenerator.GenerateAll(5);
+        }
+
+        private void fiftyRegisters_Click(object sender, EventArgs e)
+        {
+            dataGenerator.GenerateAll(50);
+        }
+
+        private void hundedRegisters_Click(object sender, EventArgs e)
+        {
+            dataGenerator.GenerateAll(100);
+        }
+
+        private void fiveHundedRegisters_Click(object sender, EventArgs e)
+        {
+            dataGenerator.GenerateAll(500);
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            string currentTime = DateTime.Now.ToString("HH:mm:ss");
+            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+            lblDataHora.Text = $"{currentDate} {currentTime}";
+        }
     }
 }

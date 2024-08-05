@@ -11,8 +11,6 @@ namespace ProjetoCadastro2
 {
     public class DummyDataGenerator
     {
-        public static bool ENABLED = true;
-        public static int DUMMY_DATA_COUNT = 100;
         private static Random random = new Random();
 
         bdMainDataSet dataset;
@@ -41,9 +39,9 @@ namespace ProjetoCadastro2
             fornecedorTableAdapter.Fill(dataset.fornecedor);
         }
 
-        public void GenerateUsuarios()
+        private void GenerateUsuarios(int count)
         {
-            for (int i = 0; i < DUMMY_DATA_COUNT; i++)
+            for (int i = 0; i < count; i++)
             {
                 usuarioSource.AddNew();
                 DataRowView rowView = usuarioSource.Current as DataRowView;
@@ -56,9 +54,9 @@ namespace ProjetoCadastro2
             }
         }
 
-        public void GenerateClientes()
+        private void GenerateClientes(int count)
         {
-            for (int i = 0; i < DUMMY_DATA_COUNT; i++)
+            for (int i = 0; i < count; i++)
             {
                 clienteSource.AddNew();
                 DataRowView rowView = clienteSource.Current as DataRowView;
@@ -79,9 +77,9 @@ namespace ProjetoCadastro2
             }
         }
 
-        public void GenerateFornecedores()
+        private void GenerateFornecedores(int count)
         {
-            for (int i = 0; i < DUMMY_DATA_COUNT; i++)
+            for (int i = 0; i < count; i++)
             {
                 fornecedorSource.AddNew();
                 DataRowView rowView = fornecedorSource.Current as DataRowView;
@@ -100,11 +98,11 @@ namespace ProjetoCadastro2
             }
         }
 
-        public void GenerateAll()
+        public void GenerateAll(int count)
         {
-            GenerateUsuarios();
-            GenerateClientes();
-            GenerateFornecedores();
+            GenerateUsuarios(count);
+            GenerateClientes(count);
+            GenerateFornecedores(count);
         }
 
         const string chars_alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

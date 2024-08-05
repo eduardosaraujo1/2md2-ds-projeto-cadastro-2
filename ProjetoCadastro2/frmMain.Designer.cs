@@ -49,11 +49,21 @@
             this.fornecedorTableAdapter = new ProjetoCadastro2.bdMainDataSetTableAdapters.fornecedorTableAdapter();
             this.clienteTableAdapter = new ProjetoCadastro2.bdMainDataSetTableAdapters.clienteTableAdapter();
             this.usuarioTableAdapter = new ProjetoCadastro2.bdMainDataSetTableAdapters.usuarioTableAdapter();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.fiveHundedRegisters = new System.Windows.Forms.ToolStripMenuItem();
+            this.hundedRegisters = new System.Windows.Forms.ToolStripMenuItem();
+            this.fiftyRegisters = new System.Windows.Forms.ToolStripMenuItem();
+            this.fiveRegisters = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblDataHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdMainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fornecedorSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -65,7 +75,7 @@
             this.sairToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(801, 28);
+            this.menuStrip.Size = new System.Drawing.Size(801, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -96,7 +106,7 @@
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
@@ -185,11 +195,92 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButton1,
+            this.lblDataHora});
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 395);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(801, 26);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fiveHundedRegisters,
+            this.hundedRegisters,
+            this.fiftyRegisters,
+            this.fiveRegisters});
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(152, 24);
+            this.toolStripSplitButton1.Text = "Adicionar Registros";
+            // 
+            // fiveHundedRegisters
+            // 
+            this.fiveHundedRegisters.Name = "fiveHundedRegisters";
+            this.fiveHundedRegisters.Size = new System.Drawing.Size(224, 26);
+            this.fiveHundedRegisters.Text = "+500 Registros";
+            this.fiveHundedRegisters.Click += new System.EventHandler(this.fiveHundedRegisters_Click);
+            // 
+            // hundedRegisters
+            // 
+            this.hundedRegisters.Name = "hundedRegisters";
+            this.hundedRegisters.Size = new System.Drawing.Size(224, 26);
+            this.hundedRegisters.Text = "+100 Registros";
+            this.hundedRegisters.Click += new System.EventHandler(this.hundedRegisters_Click);
+            // 
+            // fiftyRegisters
+            // 
+            this.fiftyRegisters.Name = "fiftyRegisters";
+            this.fiftyRegisters.Size = new System.Drawing.Size(224, 26);
+            this.fiftyRegisters.Text = "+50 Registros";
+            this.fiftyRegisters.Click += new System.EventHandler(this.fiftyRegisters_Click);
+            // 
+            // fiveRegisters
+            // 
+            this.fiveRegisters.Name = "fiveRegisters";
+            this.fiveRegisters.Size = new System.Drawing.Size(224, 26);
+            this.fiveRegisters.Text = "+5 registros";
+            this.fiveRegisters.Click += new System.EventHandler(this.fiveRegisters_Click);
+            // 
+            // lblDataHora
+            // 
+            this.lblDataHora.Name = "lblDataHora";
+            this.lblDataHora.Size = new System.Drawing.Size(124, 20);
+            this.lblDataHora.Text = "2024-01-01 00:00";
+            lblDataHora.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::ProjetoCadastro2.Properties.Resources.cadastro_1_1024x922;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.MinimumSize = new System.Drawing.Size(801, 367);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(801, 367);
+            this.panel1.TabIndex = 2;
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 421);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -202,6 +293,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.usuarioSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fornecedorSource)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +321,15 @@
         private bdMainDataSetTableAdapters.fornecedorTableAdapter fornecedorTableAdapter;
         private bdMainDataSetTableAdapters.clienteTableAdapter clienteTableAdapter;
         private bdMainDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem fiftyRegisters;
+        private System.Windows.Forms.ToolStripMenuItem fiveHundedRegisters;
+        private System.Windows.Forms.ToolStripMenuItem hundedRegisters;
+        private System.Windows.Forms.ToolStripMenuItem fiveRegisters;
+        private System.Windows.Forms.ToolStripStatusLabel lblDataHora;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
