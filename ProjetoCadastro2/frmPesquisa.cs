@@ -12,11 +12,22 @@ using System.Windows.Forms;
 namespace ProjetoCadastro2
 {
     /// <summary>
-    /// This class provides the search function to all forms by using it with ShowDialog().
+    /// This class provides the search function to all forms by using it with ShowDialog(). 
     /// It has three possible DialogResult states:
-    /// DialogResult.OK - The form found a match, stored in SearchResult
-    /// DialogResult.Cancel - The form was closed before a search was made
-    /// DialogResult.Abort - The search was made, but no result was found
+    /// <list type="bullet">
+    /// <item>
+    /// <term>DialogResult.OK</term>
+    /// <description>The form found a match, stored in SearchResult</description>
+    /// </item>
+    /// <item>
+    /// <term>DialogResult.Cancel</term>
+    /// <description>The form was closed before a search was made</description>
+    /// </item>
+    /// <item>
+    /// <term>DialogResult.Abort</term>
+    /// <description>The search was made, but no result was found</description>
+    /// </item>
+    /// </list>
     /// </summary>
     public partial class frmPesquisa : Form
     {

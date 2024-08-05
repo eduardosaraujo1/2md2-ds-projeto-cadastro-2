@@ -13,17 +13,17 @@ namespace ProjetoCadastro2
 {
     public partial class frmUsuario : Form
     {
-        private FormMode currentMode = FormMode.Visualizacao;
+        private FormMode currentMode;
         private DataTable table;
         public frmUsuario()
         {
             InitializeComponent();
-            table = bdMainDataSet.usuario;
         }
 
         private void frmUsuario_Load(object sender, EventArgs e)
         {
             this.usuarioTableAdapter.Fill(this.bdMainDataSet.usuario);
+            table = bdMainDataSet.usuario;
             SetFormMode(FormMode.Visualizacao);
         }
         
@@ -75,7 +75,7 @@ namespace ProjetoCadastro2
                 ex is NoNullAllowedException
             )
             {
-                MessageBox.Show("O cadastro possui propriedades inválidas", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Propriedade(s) inválidas: {ex.Message}", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -182,7 +182,7 @@ namespace ProjetoCadastro2
 
         private string GeneratePrintPage()
         {
-            // might be a cadastroDataSource method
+
             DataRowView row = (DataRowView)usuarioBindingSource.Current;
             string s = string.Empty;
             s += "--- DADOS DO USUÁRIO ----\n";

@@ -13,17 +13,17 @@ namespace ProjetoCadastro2
 {
     public partial class frmCliente : Form
     {
-        private FormMode currentMode = FormMode.Visualizacao;
+        private FormMode currentMode;
         private DataTable table;
         public frmCliente()
         {
             InitializeComponent();
-            table = bdMainDataSet.cliente;
         }
 
         private void frmCliente_Load(object sender, EventArgs e)
         {
             this.clienteTableAdapter.Fill(this.bdMainDataSet.cliente);
+            table = bdMainDataSet.cliente;
             SetFormMode(FormMode.Visualizacao);
         }
 
@@ -81,7 +81,7 @@ namespace ProjetoCadastro2
                 || ex is ArgumentException
             )
             {
-                MessageBox.Show("O cadastro possui propriedades inválidas", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Propriedade(s) inválidas: {ex.Message}", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -182,7 +182,6 @@ namespace ProjetoCadastro2
 
         private string GeneratePrintPage()
         {
-            // might be a cadastroDataSource method
             DataRowView row = (DataRowView)clienteBindingSource.Current;
             string s = string.Empty;
             s += "--- DADOS DO CLIENTE ----\n";

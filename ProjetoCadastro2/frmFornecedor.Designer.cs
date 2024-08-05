@@ -38,6 +38,7 @@
             System.Windows.Forms.Label cd_cepLabel;
             System.Windows.Forms.Label cd_cnpjLabel;
             System.Windows.Forms.Label cd_inscr_estadualLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFornecedor));
             this.pnlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
@@ -62,7 +63,8 @@
             this.txtNome = new System.Windows.Forms.MaskedTextBox();
             this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
             this.fornecedorTableAdapter = new ProjetoCadastro2.bdMainDataSetTableAdapters.fornecedorTableAdapter();
-            this.tableAdapterManager = new ProjetoCadastro2.bdMainDataSetTableAdapters.TableAdapterManager();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             idLabel = new System.Windows.Forms.Label();
             nm_fornecedorLabel = new System.Windows.Forms.Label();
             ds_enderecoLabel = new System.Windows.Forms.Label();
@@ -99,7 +101,7 @@
             // ds_enderecoLabel
             // 
             ds_enderecoLabel.AutoSize = true;
-            ds_enderecoLabel.Location = new System.Drawing.Point(7, 121);
+            ds_enderecoLabel.Location = new System.Drawing.Point(3, 124);
             ds_enderecoLabel.Name = "ds_enderecoLabel";
             ds_enderecoLabel.Size = new System.Drawing.Size(80, 20);
             ds_enderecoLabel.TabIndex = 4;
@@ -155,9 +157,9 @@
             cd_inscr_estadualLabel.AutoSize = true;
             cd_inscr_estadualLabel.Location = new System.Drawing.Point(280, 85);
             cd_inscr_estadualLabel.Name = "cd_inscr_estadualLabel";
-            cd_inscr_estadualLabel.Size = new System.Drawing.Size(147, 20);
+            cd_inscr_estadualLabel.Size = new System.Drawing.Size(120, 20);
             cd_inscr_estadualLabel.TabIndex = 16;
-            cd_inscr_estadualLabel.Text = "Inscrição Estadual";
+            cd_inscr_estadualLabel.Text = "Inscr. Estadual";
             // 
             // pnlButtons
             // 
@@ -200,6 +202,7 @@
             this.btnSair.TabIndex = 10;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnImprimir
             // 
@@ -212,6 +215,7 @@
             this.btnImprimir.TabIndex = 9;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnPesquisar
             // 
@@ -224,6 +228,7 @@
             this.btnPesquisar.TabIndex = 8;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnCancelar
             // 
@@ -236,6 +241,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -248,6 +254,7 @@
             this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 
@@ -260,6 +267,7 @@
             this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -272,6 +280,7 @@
             this.btnAlterar.TabIndex = 4;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
@@ -284,6 +293,7 @@
             this.btnNovo.TabIndex = 3;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnAnterior
             // 
@@ -296,6 +306,7 @@
             this.btnAnterior.TabIndex = 1;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnProximo
             // 
@@ -308,6 +319,7 @@
             this.btnProximo.TabIndex = 2;
             this.btnProximo.Text = "Próximo";
             this.btnProximo.UseVisualStyleBackColor = true;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
             // pnlContent
             // 
@@ -335,15 +347,16 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(667, 256);
             this.pnlContent.TabIndex = 24;
-            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
             // txtInscrEstadual
             // 
+            this.txtInscrEstadual.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInscrEstadual.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "cd_inscr_estadual", true));
-            this.txtInscrEstadual.Location = new System.Drawing.Point(433, 82);
+            this.txtInscrEstadual.Location = new System.Drawing.Point(416, 82);
             this.txtInscrEstadual.Mask = "000.000.000.000";
             this.txtInscrEstadual.Name = "txtInscrEstadual";
-            this.txtInscrEstadual.Size = new System.Drawing.Size(146, 27);
+            this.txtInscrEstadual.Size = new System.Drawing.Size(238, 27);
             this.txtInscrEstadual.TabIndex = 4;
             this.txtInscrEstadual.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
@@ -365,15 +378,17 @@
             this.txtCnpj.Name = "txtCnpj";
             this.txtCnpj.Size = new System.Drawing.Size(181, 27);
             this.txtCnpj.TabIndex = 3;
-            this.txtCnpj.TextChanged += new System.EventHandler(this.cd_cnpjTextBox_TextChanged);
+            this.txtCnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtCep
             // 
+            this.txtCep.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCep.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "cd_cep", true));
             this.txtCep.Location = new System.Drawing.Point(532, 154);
             this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(112, 27);
+            this.txtCep.Size = new System.Drawing.Size(122, 27);
             this.txtCep.TabIndex = 8;
             this.txtCep.Text = "42423423";
             this.txtCep.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
@@ -386,7 +401,7 @@
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(42, 27);
             this.txtEstado.TabIndex = 9;
-            this.txtEstado.TextChanged += new System.EventHandler(this.sg_estadoTextBox_TextChanged);
+            this.txtEstado.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtCidade
             // 
@@ -395,7 +410,6 @@
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(146, 27);
             this.txtCidade.TabIndex = 7;
-            this.txtCidade.TextChanged += new System.EventHandler(this.nm_cidadeTextBox_TextChanged);
             // 
             // txtBairro
             // 
@@ -407,21 +421,24 @@
             // 
             // txtEndereco
             // 
+            this.txtEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEndereco.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "ds_endereco", true));
-            this.txtEndereco.Location = new System.Drawing.Point(93, 118);
+            this.txtEndereco.Location = new System.Drawing.Point(93, 121);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(551, 27);
+            this.txtEndereco.Size = new System.Drawing.Size(561, 27);
             this.txtEndereco.TabIndex = 5;
-            this.txtEndereco.TextChanged += new System.EventHandler(this.ds_enderecoTextBox_TextChanged);
             // 
             // txtNome
             // 
+            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "nm_fornecedor", true));
             this.txtNome.Location = new System.Drawing.Point(93, 47);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(272, 27);
+            this.txtNome.Size = new System.Drawing.Size(561, 27);
             this.txtNome.TabIndex = 2;
-            this.txtNome.TextChanged += new System.EventHandler(this.nm_fornecedorTextBox_TextChanged);
+            this.txtNome.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtCodigo
             // 
@@ -430,19 +447,25 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(98, 27);
             this.txtCodigo.TabIndex = 1;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.idTextBox_TextChanged);
             // 
             // fornecedorTableAdapter
             // 
             this.fornecedorTableAdapter.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // printDocument
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.clienteTableAdapter = null;
-            this.tableAdapterManager.fornecedorTableAdapter = this.fornecedorTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ProjetoCadastro2.bdMainDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usuarioTableAdapter = null;
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
             // 
             // frmFornecedor
             // 
@@ -492,6 +515,7 @@
         private System.Windows.Forms.MaskedTextBox txtCep;
         private System.Windows.Forms.MaskedTextBox txtEstado;
         private System.Windows.Forms.MaskedTextBox txtCidade;
-        private bdMainDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
     }
 }
