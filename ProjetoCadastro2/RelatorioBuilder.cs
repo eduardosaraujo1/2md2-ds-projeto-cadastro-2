@@ -11,7 +11,7 @@ namespace ProjetoCadastro2
     public class RelatorioBuilder
     {
         private readonly List<TableColumn> columns;
-        private readonly BindingSource bindingSource;
+        //private readonly BindingSource bindingSource;
 
         private readonly DataTable dataTable;
         struct TableColumn
@@ -22,19 +22,13 @@ namespace ProjetoCadastro2
             public int width;
         }
         
-        public RelatorioBuilder(bdMainDataSet dataset)
+        public RelatorioBuilder(BindingSource source)
         {
             columns = new List<TableColumn>();
 
-            // read database
-            bdMainDataSetTableAdapters.usuarioTableAdapter adapter = new bdMainDataSetTableAdapters.usuarioTableAdapter();
-            bindingSource = new BindingSource
-            {
-                DataSource = dataset.usuario // usuario is the table
-            };
-            adapter.Fill(dataset.usuario);
-
-            dataTable = bindingSource.DataSource as DataTable;
+            // database
+            bdMainDataSet dataset = source.DataSource as bdMainDataSet;
+            dataTable = dataset.Tables[source.DataMember];
         }
 
         public void AddColumn(string columnId, string columnName, int columnWidth)

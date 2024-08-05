@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.searchQuery = new System.Windows.Forms.TextBox();
+            this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -36,12 +36,12 @@
             // 
             // searchQuery
             // 
-            this.searchQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchQuery.Location = new System.Drawing.Point(12, 63);
-            this.searchQuery.Name = "searchQuery";
-            this.searchQuery.Size = new System.Drawing.Size(456, 22);
-            this.searchQuery.TabIndex = 0;
+            this.txtSearchBar.Location = new System.Drawing.Point(12, 63);
+            this.txtSearchBar.Name = "searchQuery";
+            this.txtSearchBar.Size = new System.Drawing.Size(456, 22);
+            this.txtSearchBar.TabIndex = 0;
             // 
             // lblHeader
             // 
@@ -89,9 +89,10 @@
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.lblHeader);
-            this.Controls.Add(this.searchQuery);
+            this.Controls.Add(this.txtSearchBar);
             this.MinimumSize = new System.Drawing.Size(498, 240);
             this.Name = "frmPesquisa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPesquisa";
             this.Load += new System.EventHandler(this.frmPesquisa_Load);
             this.ResumeLayout(false);
@@ -101,7 +102,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox searchQuery;
+        private System.Windows.Forms.TextBox txtSearchBar;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnPesquisar;

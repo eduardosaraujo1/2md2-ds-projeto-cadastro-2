@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,8 +43,17 @@
             this.relUsuarioPD = new System.Drawing.Printing.PrintDocument();
             this.relUsuarioPPD = new System.Windows.Forms.PrintPreviewDialog();
             this.bdMainDataSet = new ProjetoCadastro2.bdMainDataSet();
+            this.usuarioSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fornecedorSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fornecedorTableAdapter = new ProjetoCadastro2.bdMainDataSetTableAdapters.fornecedorTableAdapter();
+            this.clienteTableAdapter = new ProjetoCadastro2.bdMainDataSetTableAdapters.clienteTableAdapter();
+            this.usuarioTableAdapter = new ProjetoCadastro2.bdMainDataSetTableAdapters.usuarioTableAdapter();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdMainDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fornecedorSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -55,7 +65,7 @@
             this.sairToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip.Size = new System.Drawing.Size(801, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -72,21 +82,21 @@
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             // 
             // relatórioToolStripMenuItem
@@ -102,20 +112,21 @@
             // relatorioUsuariosToolStrip
             // 
             this.relatorioUsuariosToolStrip.Name = "relatorioUsuariosToolStrip";
-            this.relatorioUsuariosToolStrip.Size = new System.Drawing.Size(224, 26);
+            this.relatorioUsuariosToolStrip.Size = new System.Drawing.Size(181, 26);
             this.relatorioUsuariosToolStrip.Text = "Usuários";
             this.relatorioUsuariosToolStrip.Click += new System.EventHandler(this.relatorioUsuariosToolStrip_Click);
             // 
             // RelatorioClientesToolStrip
             // 
             this.RelatorioClientesToolStrip.Name = "RelatorioClientesToolStrip";
-            this.RelatorioClientesToolStrip.Size = new System.Drawing.Size(224, 26);
+            this.RelatorioClientesToolStrip.Size = new System.Drawing.Size(181, 26);
             this.RelatorioClientesToolStrip.Text = "Clientes";
+            this.RelatorioClientesToolStrip.Click += new System.EventHandler(this.RelatorioClientesToolStrip_Click);
             // 
             // relatorioFornecedoresToolStrip
             // 
             this.relatorioFornecedoresToolStrip.Name = "relatorioFornecedoresToolStrip";
-            this.relatorioFornecedoresToolStrip.Size = new System.Drawing.Size(224, 26);
+            this.relatorioFornecedoresToolStrip.Size = new System.Drawing.Size(181, 26);
             this.relatorioFornecedoresToolStrip.Text = "Fornecedores";
             this.relatorioFornecedoresToolStrip.Click += new System.EventHandler(this.relatorioFornecedoresToolStrip_Click);
             // 
@@ -128,7 +139,7 @@
             // 
             // relUsuarioPD
             // 
-            this.relUsuarioPD.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.relUsuarioPD_PrintPage);
+            this.relUsuarioPD.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintRelatorio);
             // 
             // relUsuarioPPD
             // 
@@ -146,11 +157,38 @@
             this.bdMainDataSet.DataSetName = "bdMainDataSet";
             this.bdMainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // usuarioSource
+            // 
+            this.usuarioSource.DataMember = "usuario";
+            this.usuarioSource.DataSource = this.bdMainDataSet;
+            // 
+            // clienteSource
+            // 
+            this.clienteSource.DataMember = "cliente";
+            this.clienteSource.DataSource = this.bdMainDataSet;
+            // 
+            // fornecedorSource
+            // 
+            this.fornecedorSource.DataMember = "fornecedor";
+            this.fornecedorSource.DataSource = this.bdMainDataSet;
+            // 
+            // fornecedorTableAdapter
+            // 
+            this.fornecedorTableAdapter.ClearBeforeFill = true;
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // usuarioTableAdapter
+            // 
+            this.usuarioTableAdapter.ClearBeforeFill = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(801, 421);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -160,6 +198,9 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdMainDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fornecedorSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +221,12 @@
         private System.Drawing.Printing.PrintDocument relUsuarioPD;
         private System.Windows.Forms.PrintPreviewDialog relUsuarioPPD;
         private bdMainDataSet bdMainDataSet;
+        private System.Windows.Forms.BindingSource usuarioSource;
+        private System.Windows.Forms.BindingSource clienteSource;
+        private System.Windows.Forms.BindingSource fornecedorSource;
+        private bdMainDataSetTableAdapters.fornecedorTableAdapter fornecedorTableAdapter;
+        private bdMainDataSetTableAdapters.clienteTableAdapter clienteTableAdapter;
+        private bdMainDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
     }
 }
 

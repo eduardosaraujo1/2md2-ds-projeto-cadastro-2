@@ -14,23 +14,115 @@ namespace ProjetoCadastro2
     public partial class frmUsuario : Form
     {
         private FormMode currentMode = FormMode.Visualizacao;
+        private DataTable table;
         public frmUsuario()
         {
             InitializeComponent();
+            table = bdMainDataSet.usuario;
+        }
+
+        private void frmUsuario_Load(object sender, EventArgs e)
+        {
+            this.usuarioTableAdapter.Fill(this.bdMainDataSet.usuario);
+            SetFormMode(FormMode.Visualizacao);
         }
         
-        private int GetNextAutoIncrement(DataTable table)
+        // button handlers
+        private void btnSair_Click(object sender, EventArgs e)
         {
-            int nextIncr = 0;
-
-            if (table.Rows.Count > 0)
-            {
-                nextIncr = (int)table.Compute("MAX(Id)", "");
-            }
-
-            return nextIncr + 1;
+            Close();
         }
 
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            usuarioBindingSource.MoveNext();
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            usuarioBindingSource.MovePrevious();
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            SetFormMode(FormMode.Cadastro);
+            usuarioBindingSource.AddNew();
+            // exibir codigo manualmente devído a erro de exibição do autoincrement
+            txtCodigo.Text = Utils.EvalTableAutoIncrement(table).ToString();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (usuarioBindingSource.Current != null)
+            {
+                usuarioBindingSource.RemoveCurrent();
+                usuarioTableAdapter.Update(bdMainDataSet.usuario);
+            } else
+            {
+                MessageBox.Show("Nenhum cadastro está selecionado", "Cadastro nulo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                usuarioBindingSource.EndEdit();
+                usuarioTableAdapter.Update(bdMainDataSet.usuario);
+                SetFormMode(FormMode.Visualizacao);
+            }
+            catch (Exception ex) when (
+                ex is NoNullAllowedException
+            )
+            {
+                MessageBox.Show("O cadastro possui propriedades inválidas", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            usuarioBindingSource.CancelEdit();
+            SetFormMode(FormMode.Visualizacao);
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            SetFormMode(FormMode.Alteracao);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (usuarioBindingSource.Current != null)
+            {
+                printPreviewDialog.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nenhum cadastro está selecionado", "Cadastro nulo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisa telaPesquisa = new frmPesquisa(
+                FormTitle: "PESQUISAR USUÁRIO",
+                SearchColumn: "nm_usuario",
+                Table: table
+            );
+            switch (telaPesquisa.ShowDialog())
+            {
+                case DialogResult.OK:
+                    usuarioBindingSource.Position = telaPesquisa.SearchResult;
+                    break;
+                case DialogResult.Abort:
+                    MessageBox.Show($"Nenhum usuário com o nome \"{telaPesquisa.SearchQuery}\" foi encontrada", "Não Encontrado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+
+            }
+        }
+
+        // Form control methods
         private List<Button> GetButtons()
         {
             List<Button> btns = new List<Button>();
@@ -81,106 +173,18 @@ namespace ProjetoCadastro2
             currentMode = mode;
         }
 
-        private void frmUsuario_Load(object sender, EventArgs e)
+        // Printing methods
+        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            this.usuarioTableAdapter.Fill(this.bdMainDataSet.usuario);
-            SetFormMode(FormMode.Visualizacao);
-        }
-
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnProximo_Click(object sender, EventArgs e)
-        {
-            usuarioBindingSource.MoveNext();
-        }
-
-        private void btnAnterior_Click(object sender, EventArgs e)
-        {
-            usuarioBindingSource.MovePrevious();
-        }
-
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            SetFormMode(FormMode.Cadastro);
-            usuarioBindingSource.AddNew();
-            // exibir um valor de autoincrement para lidar melhor com o botão Cancelar
-            DataTable table = ((DataView)usuarioBindingSource.List).Table;
-            txtCodigo.Text = GetNextAutoIncrement(table).ToString();
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (usuarioBindingSource.Current != null)
-            {
-                usuarioBindingSource.RemoveCurrent();
-                usuarioTableAdapter.Update(bdMainDataSet.usuario);
-            } else
-            {
-                MessageBox.Show("Nenhum cadastro está selecionado", "Cadastro nulo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void frmUsuario_Validating(object sender, CancelEventArgs e)
-        {
-            e.Cancel = NotNulValidate(txtCodigo.Text)
-                       && VarcharValidate(txtNome.Text, 45)
-                       && CharValidate(txtNivel.Text, 1)
-                       && VarcharValidate(txtLogin.Text, 45)
-                       && VarcharValidate(txtSenha.Text, 45);
-            bool NotNulValidate(string s) => !string.IsNullOrEmpty(s);
-            bool VarcharValidate(string s, int maxLength) => s.Length <= maxLength;
-            bool CharValidate(string s, int length) => s.Length.Equals(length);
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            if (Validate())
-            {
-                usuarioBindingSource.EndEdit();
-                usuarioTableAdapter.Update(bdMainDataSet.usuario);
-            }
-            else
-            {
-                MessageBox.Show("O cadastro possui propriedades inválidas", "Cadastro inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            SetFormMode(FormMode.Visualizacao);
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            usuarioBindingSource.CancelEdit();
-            SetFormMode(FormMode.Visualizacao);
-        }
-
-        private void frmUsuario_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            btnSair_Click(sender, e);
-        }
-
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-            SetFormMode(FormMode.Alteracao);
-        }
-
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            if (usuarioBindingSource.Count > 0)
-            {
-                printPreviewDialog.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Nenhum cadastro está selecionado", "Cadastro nulo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string page = GeneratePrintPage();
+            Utils.PrintPage(page, e);
         }
 
         private string GeneratePrintPage()
         {
+            // might be a cadastroDataSource method
             DataRowView row = (DataRowView)usuarioBindingSource.Current;
-            string s = "";
+            string s = string.Empty;
             s += "--- DADOS DO USUÁRIO ----\n";
             s += "CÓDIGO: " + row["Id"] + '\n';
             s += "NOME: " + row["nm_usuario"] + '\n';
@@ -188,53 +192,6 @@ namespace ProjetoCadastro2
             s += "LOGIN: " + row["nm_login"] + '\n';
             s += "SENHA: " + new string('*', row["cd_senha"].ToString().Length);
             return s;
-        }
-
-        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            string print = GeneratePrintPage();
-            Font font = new Font("Courier New", 12, FontStyle.Regular);
-            PointF anchorPoint = new PointF(50, 50);
-
-            g.DrawString(print, font, Brushes.Black, anchorPoint);
-        }
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            frmPesquisa telaPesquisa = new frmPesquisa(RunSearch, "PESQUISAR USUÁRIO");
-            telaPesquisa.ShowDialog();
-        }
-
-        private int FindIndexOfSearchQuery(BindingSource bsource, string searchQuery, string columnName)
-        {
-            string searchQueryFiltered = searchQuery.ToLower().Trim();
-            if (!(usuarioBindingSource.List is DataView tableView)) return -1;
-
-            for (int i = 0; i < tableView.Table.Rows.Count; i++)
-            {
-                string value = tableView.Table.Rows[i][columnName].ToString();
-                string filteredValue = value.Trim().ToLower();
-
-                if (filteredValue.StartsWith(searchQueryFiltered))
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
-
-        private void RunSearch(string searchQuery)
-        {
-            int pos = FindIndexOfSearchQuery(usuarioBindingSource, searchQuery, "nm_usuario");
-            if (pos != -1)
-            {
-                usuarioBindingSource.Position = pos;
-            } else
-            {
-                MessageBox.Show($"Nenhuma pessoa com o nome {searchQuery} foi encontrada", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
     }
 }

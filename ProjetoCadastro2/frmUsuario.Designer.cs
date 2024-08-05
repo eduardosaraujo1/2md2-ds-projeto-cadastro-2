@@ -328,7 +328,7 @@
             this.btnAnterior.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(108, 39);
-            this.btnAnterior.TabIndex = 1;
+            this.btnAnterior.TabIndex = 0;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
@@ -341,7 +341,7 @@
             this.btnProximo.Margin = new System.Windows.Forms.Padding(4);
             this.btnProximo.Name = "btnProximo";
             this.btnProximo.Size = new System.Drawing.Size(108, 39);
-            this.btnProximo.TabIndex = 0;
+            this.btnProximo.TabIndex = 1;
             this.btnProximo.Text = "Próximo";
             this.btnProximo.UseVisualStyleBackColor = true;
             this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
@@ -379,7 +379,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gerenciar Usuários";
             this.Load += new System.EventHandler(this.frmUsuario_Load);
-            this.Validating += new System.ComponentModel.CancelEventHandler(this.frmUsuario_Validating);
             this.pnlContent.ResumeLayout(false);
             this.pnlContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();

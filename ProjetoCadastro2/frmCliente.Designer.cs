@@ -40,6 +40,7 @@
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label cd_cpfLabel;
             System.Windows.Forms.Label cd_rgLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.pnlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
@@ -66,6 +67,8 @@
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtRg = new System.Windows.Forms.MaskedTextBox();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             idLabel = new System.Windows.Forms.Label();
             nm_clienteLabel = new System.Windows.Forms.Label();
             nm_bairroLabel = new System.Windows.Forms.Label();
@@ -149,7 +152,7 @@
             // nr_telefoneLabel
             // 
             nr_telefoneLabel.AutoSize = true;
-            nr_telefoneLabel.Location = new System.Drawing.Point(462, 234);
+            nr_telefoneLabel.Location = new System.Drawing.Point(483, 234);
             nr_telefoneLabel.Name = "nr_telefoneLabel";
             nr_telefoneLabel.Size = new System.Drawing.Size(73, 20);
             nr_telefoneLabel.TabIndex = 15;
@@ -220,9 +223,10 @@
             this.btnSair.Margin = new System.Windows.Forms.Padding(4);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(140, 44);
-            this.btnSair.TabIndex = 9;
+            this.btnSair.TabIndex = 10;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnImprimir
             // 
@@ -232,9 +236,10 @@
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(137, 44);
-            this.btnImprimir.TabIndex = 8;
+            this.btnImprimir.TabIndex = 9;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnPesquisar
             // 
@@ -244,9 +249,10 @@
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(137, 44);
-            this.btnPesquisar.TabIndex = 7;
+            this.btnPesquisar.TabIndex = 8;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnCancelar
             // 
@@ -256,9 +262,10 @@
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(137, 44);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -268,9 +275,10 @@
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(137, 44);
-            this.btnSalvar.TabIndex = 5;
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 
@@ -280,9 +288,10 @@
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(140, 44);
-            this.btnExcluir.TabIndex = 4;
+            this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -292,9 +301,10 @@
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(137, 44);
-            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.TabIndex = 4;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
@@ -304,9 +314,10 @@
             this.btnNovo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(137, 44);
-            this.btnNovo.TabIndex = 2;
+            this.btnNovo.TabIndex = 3;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnAnterior
             // 
@@ -319,6 +330,7 @@
             this.btnAnterior.TabIndex = 1;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnProximo
             // 
@@ -328,9 +340,10 @@
             this.btnProximo.Margin = new System.Windows.Forms.Padding(4);
             this.btnProximo.Name = "btnProximo";
             this.btnProximo.Size = new System.Drawing.Size(137, 44);
-            this.btnProximo.TabIndex = 0;
+            this.btnProximo.TabIndex = 2;
             this.btnProximo.Text = "Próximo";
             this.btnProximo.UseVisualStyleBackColor = true;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
             // bdMainDataSet
             // 
@@ -352,7 +365,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(88, 12);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(88, 27);
-            this.txtCodigo.TabIndex = 3;
+            this.txtCodigo.TabIndex = 1;
             // 
             // txtNome
             // 
@@ -360,7 +373,7 @@
             this.txtNome.Location = new System.Drawing.Point(89, 56);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(414, 27);
-            this.txtNome.TabIndex = 4;
+            this.txtNome.TabIndex = 2;
             // 
             // txtBairro
             // 
@@ -368,7 +381,7 @@
             this.txtBairro.Location = new System.Drawing.Point(89, 144);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(130, 27);
-            this.txtBairro.TabIndex = 6;
+            this.txtBairro.TabIndex = 4;
             // 
             // txtEndereco
             // 
@@ -378,7 +391,7 @@
             this.txtEndereco.Location = new System.Drawing.Point(89, 100);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(635, 27);
-            this.txtEndereco.TabIndex = 8;
+            this.txtEndereco.TabIndex = 3;
             // 
             // txtCidade
             // 
@@ -386,7 +399,7 @@
             this.txtCidade.Location = new System.Drawing.Point(294, 144);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(162, 27);
-            this.txtCidade.TabIndex = 10;
+            this.txtCidade.TabIndex = 5;
             // 
             // txtEstado
             // 
@@ -395,7 +408,8 @@
             this.txtEstado.Mask = ">LL";
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(39, 27);
-            this.txtEstado.TabIndex = 12;
+            this.txtEstado.TabIndex = 6;
+            this.txtEstado.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtCep
             // 
@@ -403,25 +417,27 @@
             this.txtCep.Location = new System.Drawing.Point(89, 188);
             this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(229, 27);
-            this.txtCep.TabIndex = 14;
+            this.txtCep.Size = new System.Drawing.Size(100, 27);
+            this.txtCep.TabIndex = 7;
+            this.txtCep.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtTelefone
             // 
             this.txtTelefone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "nr_telefone", true));
-            this.txtTelefone.Location = new System.Drawing.Point(543, 231);
+            this.txtTelefone.Location = new System.Drawing.Point(562, 231);
             this.txtTelefone.Mask = "(00) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(181, 27);
-            this.txtTelefone.TabIndex = 16;
+            this.txtTelefone.Size = new System.Drawing.Size(162, 27);
+            this.txtTelefone.TabIndex = 9;
+            this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtEmail
             // 
             this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "email", true));
             this.txtEmail.Location = new System.Drawing.Point(89, 231);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(367, 27);
-            this.txtEmail.TabIndex = 18;
+            this.txtEmail.Size = new System.Drawing.Size(374, 27);
+            this.txtEmail.TabIndex = 8;
             // 
             // txtCpf
             // 
@@ -429,8 +445,9 @@
             this.txtCpf.Location = new System.Drawing.Point(89, 275);
             this.txtCpf.Mask = "000.000.000-00";
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(173, 27);
-            this.txtCpf.TabIndex = 20;
+            this.txtCpf.Size = new System.Drawing.Size(146, 27);
+            this.txtCpf.TabIndex = 10;
+            this.txtCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtRg
             // 
@@ -438,8 +455,9 @@
             this.txtRg.Location = new System.Drawing.Point(308, 275);
             this.txtRg.Mask = "00.000.000-0";
             this.txtRg.Name = "txtRg";
-            this.txtRg.Size = new System.Drawing.Size(162, 27);
-            this.txtRg.TabIndex = 22;
+            this.txtRg.Size = new System.Drawing.Size(129, 27);
+            this.txtRg.TabIndex = 11;
+            this.txtRg.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // pnlContent
             // 
@@ -472,6 +490,21 @@
             this.pnlContent.Size = new System.Drawing.Size(740, 325);
             this.pnlContent.TabIndex = 23;
             // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -481,6 +514,7 @@
             this.Controls.Add(this.pnlButtons);
             this.MinimumSize = new System.Drawing.Size(758, 488);
             this.Name = "frmCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCliente";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             this.pnlButtons.ResumeLayout(false);
@@ -521,5 +555,7 @@
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.MaskedTextBox txtRg;
         private System.Windows.Forms.Panel pnlContent;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
     }
 }
