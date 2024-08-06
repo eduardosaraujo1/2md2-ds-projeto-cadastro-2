@@ -45,16 +45,8 @@ namespace ProjetoCadastro2
             frm.Show();
         }
 
-        #region Relatórios
         string[] relatorioPages;
         int curPage = 0;
-        private void RefillRelatorioDataSet()
-        {
-            this.usuarioTableAdapter.Fill(this.bdMainDataSet.usuario);
-            this.clienteTableAdapter.Fill(this.bdMainDataSet.cliente);
-            this.fornecedorTableAdapter.Fill(this.bdMainDataSet.fornecedor);
-        }
-
         private void PrintRelatorio(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             if (relatorioPages.Length <= 0) return;
@@ -76,29 +68,34 @@ namespace ProjetoCadastro2
             curPage = 0;
         }
 
+        private void StartPrinting(string[] pages)
+        {
+            if (pages == null || pages.Length == 0) {
+                MessageBox.Show("Não foi possível gerar o relatório: não há dados para gera-lo", "Missing data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            };
+
+            relatorioPages = pages;
+            relUsuarioPPD.ShowDialog();
+        }
+
         private void relatorioUsuariosToolStrip_Click(object sender, EventArgs e)
         {
             // gerando relatório
-            RefillRelatorioDataSet();
+            usuarioTableAdapter.Fill(bdMainDataSet.usuario);
             RelatorioBuilder relatorio = new RelatorioBuilder(usuarioSource);
             relatorio.AddColumn("Id", "Código", 7);
             relatorio.AddColumn("nm_usuario", "Nome", 35);
             relatorio.AddColumn("sg_nivel", "Nível", 6);
             relatorio.AddColumn("nm_login", "Login", 20);
-            relatorioPages = relatorio.Write("Relatório de Usuários");
-            if (relatorioPages.Length == 0) {
-                MessageBox.Show("Não há nenhum usuário cadastrado, não é possível gerar um relatório", "Empty table error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            };
-
-            // imprimindo
-            relUsuarioPPD.ShowDialog();
+            string[] pages = relatorio.Write("Relatório de Usuários");
+            StartPrinting(pages);
         }
 
         private void RelatorioClientesToolStrip_Click(object sender, EventArgs e)
         {
             // gerando relatório
-            RefillRelatorioDataSet();
+            clienteTableAdapter.Fill(bdMainDataSet.cliente);
             RelatorioBuilder relatorio = new RelatorioBuilder(clienteSource);
             relatorio.AddColumn("Id", "Código", 7);
             relatorio.AddColumn("nm_cliente", "Nome", 35);
@@ -109,20 +106,14 @@ namespace ProjetoCadastro2
             relatorio.AddColumn("sg_estado", "Estado", 7);
             relatorio.AddColumn("cd_cpf", "CPF", 15);
             relatorio.AddColumn("cd_rg", "RG", 10);
-            relatorioPages = relatorio.Write("Relatório de Clientes");
-            if (relatorioPages.Length == 0) {
-                MessageBox.Show("Não há nenhum usuário cadastrado, não é possível gerar um relatório", "Empty table error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            };
-
-            // imprimindo
-            relUsuarioPPD.ShowDialog();
+            string[] pages = relatorio.Write("Relatório de Clientes");
+            StartPrinting(pages);
         }
 
         private void relatorioFornecedoresToolStrip_Click(object sender, EventArgs e)
         {
             // gerando relatório
-            RefillRelatorioDataSet();
+            fornecedorTableAdapter.Fill(bdMainDataSet.fornecedor);
             RelatorioBuilder relatorio = new RelatorioBuilder(fornecedorSource);
             relatorio.AddColumn("Id", "Código", 7);
             relatorio.AddColumn("nm_fornecedor", "Nome", 35);
@@ -132,18 +123,10 @@ namespace ProjetoCadastro2
             relatorio.AddColumn("sg_estado", "Estado", 7);
             relatorio.AddColumn("cd_cnpj", "CNPJ", 20);
             relatorio.AddColumn("cd_inscr_estadual", "Inscrição Estadual", 20);
-            relatorioPages = relatorio.Write("Relatório de Fornecedores");
-            if (relatorioPages.Length == 0) {
-                MessageBox.Show("Não há nenhum usuário cadastrado, não é possível gerar um relatório", "Empty table error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            };
-
-            // imprimindo
-            relUsuarioPPD.ShowDialog();
+            string[] pages =  relatorio.Write("Relatório de Fornecedores");
+            StartPrinting(pages);
 
         }
-        #endregion
-
 
         public enum FormMode
         {
