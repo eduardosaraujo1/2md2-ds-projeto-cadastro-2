@@ -93,21 +93,8 @@ namespace ProjetoCadastro2
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            frmPesquisa telaPesquisa = new frmPesquisa(
-                FormTitle: "PESQUISAR FORNECEDOR",
-                SearchColumn: "nm_fornecedor",
-                Table: table
-            );
-            switch (telaPesquisa.ShowDialog())
-            {
-                case DialogResult.OK:
-                    fornecedorBindingSource.Position = telaPesquisa.SearchResult;
-                    break;
-                case DialogResult.Abort:
-                    MessageBox.Show($"Nenhum fornecedor com o nome \"{telaPesquisa.SearchQuery}\" foi encontrada", "Não Encontrado",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-            }
+            frmPesquisaAdv searchForm = new frmPesquisaAdv(fornecedorBindingSource);
+            searchForm.ShowDialog();
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

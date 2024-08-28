@@ -75,7 +75,8 @@
             this.sairToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(801, 30);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(570, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -86,27 +87,27 @@
             this.clientesToolStripMenuItem,
             this.fornecedoresToolStripMenuItem});
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastroToolStripMenuItem.Text = "Cadastros";
             // 
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
@@ -117,34 +118,34 @@
             this.RelatorioClientesToolStrip,
             this.relatorioFornecedoresToolStrip});
             this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
-            this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatórioToolStripMenuItem.Text = "Relatórios";
             // 
             // relatorioUsuariosToolStrip
             // 
             this.relatorioUsuariosToolStrip.Name = "relatorioUsuariosToolStrip";
-            this.relatorioUsuariosToolStrip.Size = new System.Drawing.Size(181, 26);
+            this.relatorioUsuariosToolStrip.Size = new System.Drawing.Size(145, 22);
             this.relatorioUsuariosToolStrip.Text = "Usuários";
             this.relatorioUsuariosToolStrip.Click += new System.EventHandler(this.relatorioUsuariosToolStrip_Click);
             // 
             // RelatorioClientesToolStrip
             // 
             this.RelatorioClientesToolStrip.Name = "RelatorioClientesToolStrip";
-            this.RelatorioClientesToolStrip.Size = new System.Drawing.Size(181, 26);
+            this.RelatorioClientesToolStrip.Size = new System.Drawing.Size(145, 22);
             this.RelatorioClientesToolStrip.Text = "Clientes";
             this.RelatorioClientesToolStrip.Click += new System.EventHandler(this.RelatorioClientesToolStrip_Click);
             // 
             // relatorioFornecedoresToolStrip
             // 
             this.relatorioFornecedoresToolStrip.Name = "relatorioFornecedoresToolStrip";
-            this.relatorioFornecedoresToolStrip.Size = new System.Drawing.Size(181, 26);
+            this.relatorioFornecedoresToolStrip.Size = new System.Drawing.Size(145, 22);
             this.relatorioFornecedoresToolStrip.Text = "Fornecedores";
             this.relatorioFornecedoresToolStrip.Click += new System.EventHandler(this.relatorioFornecedoresToolStrip_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -202,9 +203,10 @@
             this.toolStripSplitButton1,
             this.lblDataHora});
             this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 395);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 322);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(801, 26);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(570, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -219,53 +221,54 @@
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(152, 24);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(122, 20);
             this.toolStripSplitButton1.Text = "Adicionar Registros";
             // 
             // fiveHundedRegisters
             // 
             this.fiveHundedRegisters.Name = "fiveHundedRegisters";
-            this.fiveHundedRegisters.Size = new System.Drawing.Size(224, 26);
+            this.fiveHundedRegisters.Size = new System.Drawing.Size(151, 22);
             this.fiveHundedRegisters.Text = "+500 Registros";
             this.fiveHundedRegisters.Click += new System.EventHandler(this.fiveHundedRegisters_Click);
             // 
             // hundedRegisters
             // 
             this.hundedRegisters.Name = "hundedRegisters";
-            this.hundedRegisters.Size = new System.Drawing.Size(224, 26);
+            this.hundedRegisters.Size = new System.Drawing.Size(151, 22);
             this.hundedRegisters.Text = "+100 Registros";
             this.hundedRegisters.Click += new System.EventHandler(this.hundedRegisters_Click);
             // 
             // fiftyRegisters
             // 
             this.fiftyRegisters.Name = "fiftyRegisters";
-            this.fiftyRegisters.Size = new System.Drawing.Size(224, 26);
+            this.fiftyRegisters.Size = new System.Drawing.Size(151, 22);
             this.fiftyRegisters.Text = "+50 Registros";
             this.fiftyRegisters.Click += new System.EventHandler(this.fiftyRegisters_Click);
             // 
             // fiveRegisters
             // 
             this.fiveRegisters.Name = "fiveRegisters";
-            this.fiveRegisters.Size = new System.Drawing.Size(224, 26);
+            this.fiveRegisters.Size = new System.Drawing.Size(151, 22);
             this.fiveRegisters.Text = "+5 registros";
             this.fiveRegisters.Click += new System.EventHandler(this.fiveRegisters_Click);
             // 
             // lblDataHora
             // 
+            this.lblDataHora.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.lblDataHora.Name = "lblDataHora";
-            this.lblDataHora.Size = new System.Drawing.Size(124, 20);
+            this.lblDataHora.Size = new System.Drawing.Size(95, 17);
             this.lblDataHora.Text = "2024-01-01 00:00";
-            lblDataHora.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::ProjetoCadastro2.Properties.Resources.cadastro_1_1024x922;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.MinimumSize = new System.Drawing.Size(801, 367);
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.MinimumSize = new System.Drawing.Size(601, 298);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(801, 367);
+            this.panel1.Size = new System.Drawing.Size(601, 298);
             this.panel1.TabIndex = 2;
             // 
             // timer
@@ -276,14 +279,13 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 421);
+            this.ClientSize = new System.Drawing.Size(570, 344);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Projeto Cadastro";
             this.Load += new System.EventHandler(this.frmMain_Load);

@@ -104,22 +104,8 @@ namespace ProjetoCadastro2
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            frmPesquisa telaPesquisa = new frmPesquisa(
-                FormTitle: "PESQUISAR USUÁRIO",
-                SearchColumn: "nm_usuario",
-                Table: table
-            );
-            switch (telaPesquisa.ShowDialog())
-            {
-                case DialogResult.OK:
-                    usuarioBindingSource.Position = telaPesquisa.SearchResult;
-                    break;
-                case DialogResult.Abort:
-                    MessageBox.Show($"Nenhum usuário com o nome \"{telaPesquisa.SearchQuery}\" foi encontrada", "Não Encontrado",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-
-            }
+            frmPesquisaAdv searchForm = new frmPesquisaAdv(usuarioBindingSource);
+            searchForm.ShowDialog();
         }
 
         // Form control methods

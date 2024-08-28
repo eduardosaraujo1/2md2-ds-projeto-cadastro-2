@@ -83,81 +83,90 @@
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(26, 15);
+            idLabel.Location = new System.Drawing.Point(20, 12);
+            idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(61, 20);
+            idLabel.Size = new System.Drawing.Size(52, 17);
             idLabel.TabIndex = 0;
             idLabel.Text = "Código";
             // 
             // nm_fornecedorLabel
             // 
             nm_fornecedorLabel.AutoSize = true;
-            nm_fornecedorLabel.Location = new System.Drawing.Point(34, 50);
+            nm_fornecedorLabel.Location = new System.Drawing.Point(26, 41);
+            nm_fornecedorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nm_fornecedorLabel.Name = "nm_fornecedorLabel";
-            nm_fornecedorLabel.Size = new System.Drawing.Size(53, 20);
+            nm_fornecedorLabel.Size = new System.Drawing.Size(45, 17);
             nm_fornecedorLabel.TabIndex = 2;
             nm_fornecedorLabel.Text = "Nome";
             // 
             // ds_enderecoLabel
             // 
             ds_enderecoLabel.AutoSize = true;
-            ds_enderecoLabel.Location = new System.Drawing.Point(3, 124);
+            ds_enderecoLabel.Location = new System.Drawing.Point(2, 101);
+            ds_enderecoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             ds_enderecoLabel.Name = "ds_enderecoLabel";
-            ds_enderecoLabel.Size = new System.Drawing.Size(80, 20);
+            ds_enderecoLabel.Size = new System.Drawing.Size(69, 17);
             ds_enderecoLabel.TabIndex = 4;
             ds_enderecoLabel.Text = "Endereço";
             // 
             // nm_bairroLabel
             // 
             nm_bairroLabel.AutoSize = true;
-            nm_bairroLabel.Location = new System.Drawing.Point(32, 157);
+            nm_bairroLabel.Location = new System.Drawing.Point(24, 128);
+            nm_bairroLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nm_bairroLabel.Name = "nm_bairroLabel";
-            nm_bairroLabel.Size = new System.Drawing.Size(55, 20);
+            nm_bairroLabel.Size = new System.Drawing.Size(46, 17);
             nm_bairroLabel.TabIndex = 6;
             nm_bairroLabel.Text = "Bairro";
             // 
             // nm_cidadeLabel
             // 
             nm_cidadeLabel.AutoSize = true;
-            nm_cidadeLabel.Location = new System.Drawing.Point(263, 157);
+            nm_cidadeLabel.Location = new System.Drawing.Point(203, 128);
+            nm_cidadeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nm_cidadeLabel.Name = "nm_cidadeLabel";
-            nm_cidadeLabel.Size = new System.Drawing.Size(61, 20);
+            nm_cidadeLabel.Size = new System.Drawing.Size(52, 17);
             nm_cidadeLabel.TabIndex = 8;
             nm_cidadeLabel.Text = "Cidade";
             // 
             // sg_estadoLabel
             // 
             sg_estadoLabel.AutoSize = true;
-            sg_estadoLabel.Location = new System.Drawing.Point(26, 194);
+            sg_estadoLabel.Location = new System.Drawing.Point(20, 158);
+            sg_estadoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             sg_estadoLabel.Name = "sg_estadoLabel";
-            sg_estadoLabel.Size = new System.Drawing.Size(61, 20);
+            sg_estadoLabel.Size = new System.Drawing.Size(52, 17);
             sg_estadoLabel.TabIndex = 10;
             sg_estadoLabel.Text = "Estado";
             // 
             // cd_cepLabel
             // 
             cd_cepLabel.AutoSize = true;
-            cd_cepLabel.Location = new System.Drawing.Point(483, 157);
+            cd_cepLabel.Location = new System.Drawing.Point(370, 128);
+            cd_cepLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             cd_cepLabel.Name = "cd_cepLabel";
-            cd_cepLabel.Size = new System.Drawing.Size(43, 20);
+            cd_cepLabel.Size = new System.Drawing.Size(35, 17);
             cd_cepLabel.TabIndex = 12;
             cd_cepLabel.Text = "CEP";
             // 
             // cd_cnpjLabel
             // 
             cd_cnpjLabel.AutoSize = true;
-            cd_cnpjLabel.Location = new System.Drawing.Point(34, 85);
+            cd_cnpjLabel.Location = new System.Drawing.Point(26, 69);
+            cd_cnpjLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             cd_cnpjLabel.Name = "cd_cnpjLabel";
-            cd_cnpjLabel.Size = new System.Drawing.Size(53, 20);
+            cd_cnpjLabel.Size = new System.Drawing.Size(43, 17);
             cd_cnpjLabel.TabIndex = 14;
             cd_cnpjLabel.Text = "CNPJ";
             // 
             // cd_inscr_estadualLabel
             // 
             cd_inscr_estadualLabel.AutoSize = true;
-            cd_inscr_estadualLabel.Location = new System.Drawing.Point(280, 85);
+            cd_inscr_estadualLabel.Location = new System.Drawing.Point(216, 69);
+            cd_inscr_estadualLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             cd_inscr_estadualLabel.Name = "cd_inscr_estadualLabel";
-            cd_inscr_estadualLabel.Size = new System.Drawing.Size(120, 20);
+            cd_inscr_estadualLabel.Size = new System.Drawing.Size(101, 17);
             cd_inscr_estadualLabel.TabIndex = 16;
             cd_inscr_estadualLabel.Text = "Inscr. Estadual";
             // 
@@ -181,24 +190,22 @@
             this.pnlButtons.Controls.Add(this.btnProximo, 1, 0);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlButtons.Location = new System.Drawing.Point(0, 256);
-            this.pnlButtons.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 215);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Padding = new System.Windows.Forms.Padding(6);
+            this.pnlButtons.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlButtons.RowCount = 2;
             this.pnlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlButtons.Size = new System.Drawing.Size(667, 116);
+            this.pnlButtons.Size = new System.Drawing.Size(611, 94);
             this.pnlButtons.TabIndex = 3;
             // 
             // btnSair
             // 
             this.btnSair.AutoSize = true;
             this.btnSair.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSair.Location = new System.Drawing.Point(534, 62);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSair.Location = new System.Drawing.Point(487, 50);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(123, 44);
+            this.btnSair.Size = new System.Drawing.Size(117, 36);
             this.btnSair.TabIndex = 10;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -208,10 +215,9 @@
             // 
             this.btnImprimir.AutoSize = true;
             this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnImprimir.Location = new System.Drawing.Point(403, 62);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImprimir.Location = new System.Drawing.Point(367, 50);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(123, 44);
+            this.btnImprimir.Size = new System.Drawing.Size(114, 36);
             this.btnImprimir.TabIndex = 9;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
@@ -221,10 +227,9 @@
             // 
             this.btnPesquisar.AutoSize = true;
             this.btnPesquisar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPesquisar.Location = new System.Drawing.Point(272, 62);
-            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPesquisar.Location = new System.Drawing.Point(247, 50);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(123, 44);
+            this.btnPesquisar.Size = new System.Drawing.Size(114, 36);
             this.btnPesquisar.TabIndex = 8;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
@@ -234,10 +239,9 @@
             // 
             this.btnCancelar.AutoSize = true;
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancelar.Location = new System.Drawing.Point(141, 62);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(127, 50);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(123, 44);
+            this.btnCancelar.Size = new System.Drawing.Size(114, 36);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -247,10 +251,9 @@
             // 
             this.btnSalvar.AutoSize = true;
             this.btnSalvar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSalvar.Location = new System.Drawing.Point(10, 62);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalvar.Location = new System.Drawing.Point(7, 50);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(123, 44);
+            this.btnSalvar.Size = new System.Drawing.Size(114, 36);
             this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -260,10 +263,9 @@
             // 
             this.btnExcluir.AutoSize = true;
             this.btnExcluir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExcluir.Location = new System.Drawing.Point(534, 10);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExcluir.Location = new System.Drawing.Point(487, 8);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(123, 44);
+            this.btnExcluir.Size = new System.Drawing.Size(117, 36);
             this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -273,10 +275,9 @@
             // 
             this.btnAlterar.AutoSize = true;
             this.btnAlterar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAlterar.Location = new System.Drawing.Point(403, 10);
-            this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlterar.Location = new System.Drawing.Point(367, 8);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(123, 44);
+            this.btnAlterar.Size = new System.Drawing.Size(114, 36);
             this.btnAlterar.TabIndex = 4;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -286,10 +287,9 @@
             // 
             this.btnNovo.AutoSize = true;
             this.btnNovo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNovo.Location = new System.Drawing.Point(272, 10);
-            this.btnNovo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNovo.Location = new System.Drawing.Point(247, 8);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(123, 44);
+            this.btnNovo.Size = new System.Drawing.Size(114, 36);
             this.btnNovo.TabIndex = 3;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -299,10 +299,9 @@
             // 
             this.btnAnterior.AutoSize = true;
             this.btnAnterior.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAnterior.Location = new System.Drawing.Point(10, 10);
-            this.btnAnterior.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAnterior.Location = new System.Drawing.Point(7, 8);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(123, 44);
+            this.btnAnterior.Size = new System.Drawing.Size(114, 36);
             this.btnAnterior.TabIndex = 1;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
@@ -312,10 +311,9 @@
             // 
             this.btnProximo.AutoSize = true;
             this.btnProximo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProximo.Location = new System.Drawing.Point(141, 10);
-            this.btnProximo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProximo.Location = new System.Drawing.Point(127, 8);
             this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(123, 44);
+            this.btnProximo.Size = new System.Drawing.Size(114, 36);
             this.btnProximo.TabIndex = 2;
             this.btnProximo.Text = "Próximo";
             this.btnProximo.UseVisualStyleBackColor = true;
@@ -344,8 +342,9 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(667, 256);
+            this.pnlContent.Size = new System.Drawing.Size(611, 215);
             this.pnlContent.TabIndex = 24;
             // 
             // txtInscrEstadual
@@ -353,10 +352,11 @@
             this.txtInscrEstadual.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInscrEstadual.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "cd_inscr_estadual", true));
-            this.txtInscrEstadual.Location = new System.Drawing.Point(416, 82);
+            this.txtInscrEstadual.Location = new System.Drawing.Point(318, 67);
+            this.txtInscrEstadual.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtInscrEstadual.Mask = "000.000.000.000";
             this.txtInscrEstadual.Name = "txtInscrEstadual";
-            this.txtInscrEstadual.Size = new System.Drawing.Size(238, 27);
+            this.txtInscrEstadual.Size = new System.Drawing.Size(291, 23);
             this.txtInscrEstadual.TabIndex = 4;
             this.txtInscrEstadual.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
@@ -373,10 +373,11 @@
             // txtCnpj
             // 
             this.txtCnpj.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "cd_cnpj", true));
-            this.txtCnpj.Location = new System.Drawing.Point(93, 82);
+            this.txtCnpj.Location = new System.Drawing.Point(76, 67);
+            this.txtCnpj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCnpj.Mask = "00.000.000/0000-00";
             this.txtCnpj.Name = "txtCnpj";
-            this.txtCnpj.Size = new System.Drawing.Size(181, 27);
+            this.txtCnpj.Size = new System.Drawing.Size(137, 23);
             this.txtCnpj.TabIndex = 3;
             this.txtCnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
@@ -385,10 +386,11 @@
             this.txtCep.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCep.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "cd_cep", true));
-            this.txtCep.Location = new System.Drawing.Point(532, 154);
+            this.txtCep.Location = new System.Drawing.Point(407, 125);
+            this.txtCep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(122, 27);
+            this.txtCep.Size = new System.Drawing.Size(202, 23);
             this.txtCep.TabIndex = 8;
             this.txtCep.Text = "42423423";
             this.txtCep.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
@@ -396,27 +398,30 @@
             // txtEstado
             // 
             this.txtEstado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "sg_estado", true));
-            this.txtEstado.Location = new System.Drawing.Point(93, 191);
+            this.txtEstado.Location = new System.Drawing.Point(76, 155);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEstado.Mask = ">LL";
             this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(42, 27);
+            this.txtEstado.Size = new System.Drawing.Size(32, 23);
             this.txtEstado.TabIndex = 9;
             this.txtEstado.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtCidade
             // 
             this.txtCidade.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "nm_cidade", true));
-            this.txtCidade.Location = new System.Drawing.Point(330, 154);
+            this.txtCidade.Location = new System.Drawing.Point(256, 125);
+            this.txtCidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(146, 27);
+            this.txtCidade.Size = new System.Drawing.Size(110, 23);
             this.txtCidade.TabIndex = 7;
             // 
             // txtBairro
             // 
             this.txtBairro.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "nm_bairro", true));
-            this.txtBairro.Location = new System.Drawing.Point(93, 154);
+            this.txtBairro.Location = new System.Drawing.Point(76, 125);
+            this.txtBairro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(164, 27);
+            this.txtBairro.Size = new System.Drawing.Size(124, 23);
             this.txtBairro.TabIndex = 6;
             // 
             // txtEndereco
@@ -424,9 +429,10 @@
             this.txtEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEndereco.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "ds_endereco", true));
-            this.txtEndereco.Location = new System.Drawing.Point(93, 121);
+            this.txtEndereco.Location = new System.Drawing.Point(76, 98);
+            this.txtEndereco.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(561, 27);
+            this.txtEndereco.Size = new System.Drawing.Size(533, 23);
             this.txtEndereco.TabIndex = 5;
             // 
             // txtNome
@@ -434,18 +440,20 @@
             this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "nm_fornecedor", true));
-            this.txtNome.Location = new System.Drawing.Point(93, 47);
+            this.txtNome.Location = new System.Drawing.Point(76, 38);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(561, 27);
+            this.txtNome.Size = new System.Drawing.Size(533, 23);
             this.txtNome.TabIndex = 2;
             this.txtNome.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtCodigo
             // 
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Id", true));
-            this.txtCodigo.Location = new System.Drawing.Point(93, 12);
+            this.txtCodigo.Location = new System.Drawing.Point(76, 10);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(98, 27);
+            this.txtCodigo.Size = new System.Drawing.Size(74, 23);
             this.txtCodigo.TabIndex = 1;
             // 
             // fornecedorTableAdapter
@@ -469,12 +477,13 @@
             // 
             // frmFornecedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 372);
+            this.ClientSize = new System.Drawing.Size(611, 309);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlButtons);
-            this.MinimumSize = new System.Drawing.Size(685, 419);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(518, 348);
             this.Name = "frmFornecedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gerenciar Fornecedores";
