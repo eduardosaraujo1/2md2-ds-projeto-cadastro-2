@@ -106,6 +106,7 @@ namespace ProjetoCadastro2
         {
             frmPesquisaAdv searchForm = new frmPesquisaAdv(usuarioBindingSource);
             searchForm.ShowDialog();
+            usuarioBindingSource.Filter = string.Empty;
         }
 
         // Form control methods

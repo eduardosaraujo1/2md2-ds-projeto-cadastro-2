@@ -13,7 +13,6 @@ namespace ProjetoCadastro2
 {
     public partial class frmPesquisaAdv : Form
     {
-        public int returnCode { get; private set; } = -1;
         private BindingSource source { get; set; }
         public frmPesquisaAdv(BindingSource source)
         {
@@ -23,7 +22,6 @@ namespace ProjetoCadastro2
 
         private void frmPesquisaAdv_Load(object sender, EventArgs e)
         {
-            // this.usuarioTableAdapter.Fill(this.bdMainDataSet.usuario);
             SetupDataGrid();
         }
 
@@ -40,10 +38,18 @@ namespace ProjetoCadastro2
             nameColumn.HeaderText = "Nome";
         }
 
-        private void usuarioDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private string GetColumnName()
+        {
+            DataGridViewColumn column = dataGridView.Columns[1];
+            return column.Name;
+        }
+
+        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // column index sempre 0 para ser coluna de ID
-            returnCode = (int)dataGridView[0, e.RowIndex].Value;
+            int newPos = (int)dataGridView[0, e.RowIndex].Value;
+            source.Filter = "";
+            source.Position = newPos - 1;
             Close();
         }
         
@@ -56,11 +62,12 @@ namespace ProjetoCadastro2
                 return;
             }
 
-            source.Filter = $"nm_usuario like '%{query}%'";
+            source.Filter = $"{GetColumnName()} like '%{query}%'"; 
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void btnSair_onclick(object sender, EventArgs e)
         {
+            source.Filter = "";
             Close();
         }
 

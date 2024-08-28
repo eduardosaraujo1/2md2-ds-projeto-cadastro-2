@@ -105,7 +105,7 @@
             this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.btnSair.Click += new System.EventHandler(this.btnSair_onclick);
             // 
             // dataGridView
             // 
@@ -120,7 +120,7 @@
             this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(590, 277);
             this.dataGridView.TabIndex = 3;
-            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuarioDataGridView_CellContentDoubleClick);
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
             // frmPesquisaAdv
             // 

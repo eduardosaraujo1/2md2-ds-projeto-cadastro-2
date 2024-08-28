@@ -36,7 +36,6 @@ C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\Proj
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmCliente.resources
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmFornecedor.resources
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmMain.resources
-C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmPesquisa.resources
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmUsuario.resources
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.Properties.Resources.resources
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.csproj.GenerateResource.cache

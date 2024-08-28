@@ -95,6 +95,7 @@ namespace ProjetoCadastro2
         {
             frmPesquisaAdv searchForm = new frmPesquisaAdv(fornecedorBindingSource);
             searchForm.ShowDialog();
+            fornecedorBindingSource.Filter = string.Empty;
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
