@@ -80,51 +80,51 @@
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
             this.pnlContent.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(596, 346);
+            this.pnlContent.Size = new System.Drawing.Size(494, 284);
             this.pnlContent.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 200);
+            this.label5.Location = new System.Drawing.Point(15, 133);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 2;
             this.label5.Text = "Senha";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 154);
+            this.label4.Location = new System.Drawing.Point(21, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(43, 17);
             this.label4.TabIndex = 2;
             this.label4.Text = "Login";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 108);
+            this.label3.Location = new System.Drawing.Point(25, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.Size = new System.Drawing.Size(39, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nível";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 62);
+            this.label2.Location = new System.Drawing.Point(18, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nome";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 16);
+            this.label1.Location = new System.Drawing.Point(10, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Código";
             // 
@@ -132,9 +132,9 @@
             // 
             this.txtSenha.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "cd_senha", true));
             this.txtSenha.Enabled = false;
-            this.txtSenha.Location = new System.Drawing.Point(76, 197);
+            this.txtSenha.Location = new System.Drawing.Point(75, 133);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(117, 27);
+            this.txtSenha.Size = new System.Drawing.Size(117, 23);
             this.txtSenha.TabIndex = 5;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
@@ -152,20 +152,20 @@
             // 
             this.txtLogin.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "nm_login", true));
             this.txtLogin.Enabled = false;
-            this.txtLogin.Location = new System.Drawing.Point(76, 151);
+            this.txtLogin.Location = new System.Drawing.Point(75, 108);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(148, 27);
+            this.txtLogin.Size = new System.Drawing.Size(148, 23);
             this.txtLogin.TabIndex = 4;
             // 
             // txtNivel
             // 
             this.txtNivel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "sg_nivel", true));
             this.txtNivel.Enabled = false;
-            this.txtNivel.Location = new System.Drawing.Point(76, 105);
+            this.txtNivel.Location = new System.Drawing.Point(75, 78);
             this.txtNivel.Mask = "A";
             this.txtNivel.MinimumSize = new System.Drawing.Size(28, 24);
             this.txtNivel.Name = "txtNivel";
-            this.txtNivel.Size = new System.Drawing.Size(41, 27);
+            this.txtNivel.Size = new System.Drawing.Size(41, 24);
             this.txtNivel.TabIndex = 3;
             this.txtNivel.ValidatingType = typeof(int);
             // 
@@ -173,18 +173,18 @@
             // 
             this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "nm_usuario", true));
             this.txtNome.Enabled = false;
-            this.txtNome.Location = new System.Drawing.Point(76, 59);
+            this.txtNome.Location = new System.Drawing.Point(75, 48);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(185, 27);
+            this.txtNome.Size = new System.Drawing.Size(185, 23);
             this.txtNome.TabIndex = 2;
             // 
             // txtCodigo
             // 
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Id", true));
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(76, 12);
+            this.txtCodigo.Location = new System.Drawing.Point(75, 17);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(76, 27);
+            this.txtCodigo.Size = new System.Drawing.Size(76, 23);
             this.txtCodigo.TabIndex = 1;
             // 
             // pnlButtons
@@ -206,24 +206,24 @@
             this.pnlButtons.Controls.Add(this.btnAnterior, 0, 0);
             this.pnlButtons.Controls.Add(this.btnProximo, 1, 0);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 239);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 177);
             this.pnlButtons.Margin = new System.Windows.Forms.Padding(4);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Padding = new System.Windows.Forms.Padding(6);
             this.pnlButtons.RowCount = 2;
             this.pnlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlButtons.Size = new System.Drawing.Size(596, 107);
+            this.pnlButtons.Size = new System.Drawing.Size(494, 107);
             this.pnlButtons.TabIndex = 1;
             // 
             // btnSair
             // 
             this.btnSair.AutoSize = true;
             this.btnSair.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSair.Location = new System.Drawing.Point(474, 57);
+            this.btnSair.Location = new System.Drawing.Point(394, 57);
             this.btnSair.Margin = new System.Windows.Forms.Padding(4);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(112, 40);
+            this.btnSair.Size = new System.Drawing.Size(90, 40);
             this.btnSair.TabIndex = 9;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -233,10 +233,10 @@
             // 
             this.btnImprimir.AutoSize = true;
             this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnImprimir.Location = new System.Drawing.Point(358, 57);
+            this.btnImprimir.Location = new System.Drawing.Point(298, 57);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(108, 40);
+            this.btnImprimir.Size = new System.Drawing.Size(88, 40);
             this.btnImprimir.TabIndex = 8;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
@@ -246,10 +246,10 @@
             // 
             this.btnPesquisar.AutoSize = true;
             this.btnPesquisar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPesquisar.Location = new System.Drawing.Point(242, 57);
+            this.btnPesquisar.Location = new System.Drawing.Point(202, 57);
             this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(108, 40);
+            this.btnPesquisar.Size = new System.Drawing.Size(88, 40);
             this.btnPesquisar.TabIndex = 7;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
@@ -259,10 +259,10 @@
             // 
             this.btnCancelar.AutoSize = true;
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancelar.Location = new System.Drawing.Point(126, 57);
+            this.btnCancelar.Location = new System.Drawing.Point(106, 57);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(108, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(88, 40);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -275,7 +275,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(10, 57);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(108, 40);
+            this.btnSalvar.Size = new System.Drawing.Size(88, 40);
             this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -285,10 +285,10 @@
             // 
             this.btnExcluir.AutoSize = true;
             this.btnExcluir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExcluir.Location = new System.Drawing.Point(474, 10);
+            this.btnExcluir.Location = new System.Drawing.Point(394, 10);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(112, 39);
+            this.btnExcluir.Size = new System.Drawing.Size(90, 39);
             this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -298,10 +298,10 @@
             // 
             this.btnAlterar.AutoSize = true;
             this.btnAlterar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAlterar.Location = new System.Drawing.Point(358, 10);
+            this.btnAlterar.Location = new System.Drawing.Point(298, 10);
             this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(108, 39);
+            this.btnAlterar.Size = new System.Drawing.Size(88, 39);
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -311,10 +311,10 @@
             // 
             this.btnNovo.AutoSize = true;
             this.btnNovo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNovo.Location = new System.Drawing.Point(242, 10);
+            this.btnNovo.Location = new System.Drawing.Point(202, 10);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(108, 39);
+            this.btnNovo.Size = new System.Drawing.Size(88, 39);
             this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@
             this.btnAnterior.Location = new System.Drawing.Point(10, 10);
             this.btnAnterior.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(108, 39);
+            this.btnAnterior.Size = new System.Drawing.Size(88, 39);
             this.btnAnterior.TabIndex = 0;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
@@ -337,10 +337,10 @@
             // 
             this.btnProximo.AutoSize = true;
             this.btnProximo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProximo.Location = new System.Drawing.Point(126, 10);
+            this.btnProximo.Location = new System.Drawing.Point(106, 10);
             this.btnProximo.Margin = new System.Windows.Forms.Padding(4);
             this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(108, 39);
+            this.btnProximo.Size = new System.Drawing.Size(88, 39);
             this.btnProximo.TabIndex = 1;
             this.btnProximo.Text = "Próximo";
             this.btnProximo.UseVisualStyleBackColor = true;
@@ -367,14 +367,14 @@
             // 
             // frmUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 346);
+            this.ClientSize = new System.Drawing.Size(494, 284);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlContent);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(614, 393);
+            this.MinimumSize = new System.Drawing.Size(510, 323);
             this.Name = "frmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gerenciar Usuários";

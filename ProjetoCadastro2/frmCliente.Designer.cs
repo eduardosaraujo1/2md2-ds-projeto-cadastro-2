@@ -363,7 +363,7 @@
             // 
             this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Id", true));
             this.txtCodigo.Location = new System.Drawing.Point(70, 10);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(67, 23);
             this.txtCodigo.TabIndex = 1;
@@ -372,7 +372,7 @@
             // 
             this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "nm_cliente", true));
             this.txtNome.Location = new System.Drawing.Point(71, 46);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(312, 23);
             this.txtNome.TabIndex = 2;
@@ -381,7 +381,7 @@
             // 
             this.txtBairro.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "nm_bairro", true));
             this.txtBairro.Location = new System.Drawing.Point(71, 117);
-            this.txtBairro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBairro.Margin = new System.Windows.Forms.Padding(2);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(98, 23);
             this.txtBairro.TabIndex = 4;
@@ -392,7 +392,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEndereco.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "ds_endereco", true));
             this.txtEndereco.Location = new System.Drawing.Point(71, 81);
-            this.txtEndereco.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEndereco.Margin = new System.Windows.Forms.Padding(2);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(509, 23);
             this.txtEndereco.TabIndex = 3;
@@ -401,7 +401,7 @@
             // 
             this.txtCidade.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "nm_cidade", true));
             this.txtCidade.Location = new System.Drawing.Point(224, 117);
-            this.txtCidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCidade.Margin = new System.Windows.Forms.Padding(2);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(122, 23);
             this.txtCidade.TabIndex = 5;
@@ -410,7 +410,7 @@
             // 
             this.txtEstado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "sg_estado", true));
             this.txtEstado.Location = new System.Drawing.Point(411, 117);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(2);
             this.txtEstado.Mask = ">LL";
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(30, 23);
@@ -421,7 +421,7 @@
             // 
             this.txtCep.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "cd_cep", true));
             this.txtCep.Location = new System.Drawing.Point(71, 153);
-            this.txtCep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCep.Margin = new System.Windows.Forms.Padding(2);
             this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(76, 23);
@@ -434,7 +434,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTelefone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "nr_telefone", true));
             this.txtTelefone.Location = new System.Drawing.Point(434, 187);
-            this.txtTelefone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefone.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefone.Mask = "(00) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(122, 23);
@@ -445,7 +445,7 @@
             // 
             this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "email", true));
             this.txtEmail.Location = new System.Drawing.Point(71, 188);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(282, 23);
             this.txtEmail.TabIndex = 8;
@@ -454,7 +454,7 @@
             // 
             this.txtCpf.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "cd_cpf", true));
             this.txtCpf.Location = new System.Drawing.Point(71, 223);
-            this.txtCpf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCpf.Margin = new System.Windows.Forms.Padding(2);
             this.txtCpf.Mask = "000.000.000-00";
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(110, 23);
@@ -465,7 +465,7 @@
             // 
             this.txtRg.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "cd_rg", true));
             this.txtRg.Location = new System.Drawing.Point(235, 223);
-            this.txtRg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRg.Margin = new System.Windows.Forms.Padding(2);
             this.txtRg.Mask = "00.000.000-0";
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(98, 23);
@@ -499,7 +499,7 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
-            this.pnlContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(587, 271);
             this.pnlContent.TabIndex = 23;
@@ -526,8 +526,8 @@
             this.ClientSize = new System.Drawing.Size(587, 365);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlButtons);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(572, 404);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(603, 404);
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gerenciar Clientes";
