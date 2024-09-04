@@ -46,8 +46,13 @@ namespace ProjetoCadastro2
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // column index sempre 0 para ser coluna de ID
-            int newPos = (int)dataGridView[0, e.RowIndex].Value;
+            const int positionColId = 0;
+            // Se o usuário clicar no header da tabela, RowIndex é menor que 0.
+            if (e.RowIndex < 0 || e.RowIndex >= dataGridView.Rows.Count)
+            {
+                return; 
+            }
+            int newPos = (int)dataGridView[positionColId, e.RowIndex].Value;
             source.Filter = string.Empty;
             source.Position = newPos - 1;
             Close();
