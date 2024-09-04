@@ -356,7 +356,7 @@
             this.txtInscrEstadual.Margin = new System.Windows.Forms.Padding(2);
             this.txtInscrEstadual.Mask = "000.000.000.000";
             this.txtInscrEstadual.Name = "txtInscrEstadual";
-            this.txtInscrEstadual.Size = new System.Drawing.Size(182, 23);
+            this.txtInscrEstadual.Size = new System.Drawing.Size(173, 23);
             this.txtInscrEstadual.TabIndex = 4;
             this.txtInscrEstadual.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
@@ -390,7 +390,7 @@
             this.txtCep.Margin = new System.Windows.Forms.Padding(2);
             this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(93, 23);
+            this.txtCep.Size = new System.Drawing.Size(84, 23);
             this.txtCep.TabIndex = 8;
             this.txtCep.Text = "42423423";
             this.txtCep.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
@@ -432,7 +432,7 @@
             this.txtEndereco.Location = new System.Drawing.Point(76, 98);
             this.txtEndereco.Margin = new System.Windows.Forms.Padding(2);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(424, 23);
+            this.txtEndereco.Size = new System.Drawing.Size(415, 23);
             this.txtEndereco.TabIndex = 5;
             // 
             // txtNome
@@ -443,7 +443,7 @@
             this.txtNome.Location = new System.Drawing.Point(76, 38);
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(424, 23);
+            this.txtNome.Size = new System.Drawing.Size(415, 23);
             this.txtNome.TabIndex = 2;
             this.txtNome.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 

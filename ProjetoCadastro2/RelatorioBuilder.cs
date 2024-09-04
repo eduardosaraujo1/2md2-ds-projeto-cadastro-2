@@ -38,7 +38,7 @@ namespace ProjetoCadastro2
             {
                 id = columnId,
                 name = columnName,
-                width = Math.Min(columnWidth, RelatorioPrefs.PAGE_LINE_LENGTH) // anti stupid check
+                width = Math.Min(columnWidth, RelatorioPrefs.PAGE_LINE_LENGTH)
             };
             columns.Add(column);
         }
@@ -46,9 +46,9 @@ namespace ProjetoCadastro2
         /// <summary>
         /// Stringifies a table row by concatenating them side by side
         /// </summary>
-        /// <param name="getColumnContent">Expression modifies what will be concatenated in the string, could be column name or column data</param>
+        /// <param name="GetColumnContent">Expression modifies what will be concatenated in the string, could be column name or column data</param>
         /// <returns></returns>
-        private string ConcatTableColumns(Func<TableColumn, string> getColumnContent)
+        private string ConcatTableColumns(Func<TableColumn, string> GetColumnContent)
         {
             string row = string.Empty;
             string col;
@@ -64,11 +64,7 @@ namespace ProjetoCadastro2
                 }
 
                 // draw the column and update new line length
-                col = getColumnContent(column);
-                if (col.Length > column.width)
-                {
-                    //Debugger.Break();
-                }
+                col = GetColumnContent(column);
                 col = Truncate(col, column.width - 1).PadRight(column.width); // -1 adds the column separator
                 row += col;
                 currentLineLength += col.Length; // track how long the current line is

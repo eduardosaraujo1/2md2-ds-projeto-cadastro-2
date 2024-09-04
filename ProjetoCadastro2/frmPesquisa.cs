@@ -16,8 +16,8 @@ namespace ProjetoCadastro2
         private BindingSource source { get; set; }
         public frmPesquisa(BindingSource source)
         {
-            InitializeComponent();
             this.source = source;
+            InitializeComponent();
         }
 
         private void frmPesquisaAdv_Load(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace ProjetoCadastro2
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             const int positionColId = 0;
-            // Se o usuário clicar no header da tabela, RowIndex é menor que 0.
+            // Se o usuário clicar no header da tabela, RowIndex é menor que 0 e o programa crasha
             if (e.RowIndex < 0 || e.RowIndex >= dataGridView.Rows.Count)
             {
                 return; 
@@ -66,7 +66,7 @@ namespace ProjetoCadastro2
                 source.Filter = string.Empty;
             } else
             {
-                source.Filter = $"{GetColumnName()} like '%{query}%'";
+                source.Filter = $"{GetColumnName()} LIKE '%{query}%'";
             }
         }
 
@@ -74,11 +74,6 @@ namespace ProjetoCadastro2
         {
             source.Filter = string.Empty;
             Close();
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            RunQuery();
         }
     }
 }

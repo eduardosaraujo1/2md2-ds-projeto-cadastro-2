@@ -130,6 +130,8 @@
             // 
             // txtSenha
             // 
+            this.txtSenha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSenha.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "cd_senha", true));
             this.txtSenha.Enabled = false;
             this.txtSenha.Location = new System.Drawing.Point(75, 133);
@@ -150,6 +152,8 @@
             // 
             // txtLogin
             // 
+            this.txtLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLogin.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "nm_login", true));
             this.txtLogin.Enabled = false;
             this.txtLogin.Location = new System.Drawing.Point(75, 108);
@@ -165,12 +169,14 @@
             this.txtNivel.Mask = "A";
             this.txtNivel.MinimumSize = new System.Drawing.Size(28, 24);
             this.txtNivel.Name = "txtNivel";
-            this.txtNivel.Size = new System.Drawing.Size(41, 24);
+            this.txtNivel.Size = new System.Drawing.Size(41, 23);
             this.txtNivel.TabIndex = 3;
             this.txtNivel.ValidatingType = typeof(int);
             // 
             // txtNome
             // 
+            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "nm_usuario", true));
             this.txtNome.Enabled = false;
             this.txtNome.Location = new System.Drawing.Point(75, 48);
