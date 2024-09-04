@@ -48,33 +48,37 @@ namespace ProjetoCadastro2
         /// </summary>
         /// <param name="GetColumnContent">Expression modifies what will be concatenated in the string, could be column name or column data</param>
         /// <returns></returns>
-        private string ConcatTableColumns(Func<TableColumn, string> GetColumnContent)
+        private string BuildTableRow(string[] rowData)
         {
-            string row = string.Empty;
-            string col;
-            int currentLineLength = 0;
-            foreach (TableColumn column in columns)
+            if (rowData.Length != columns.Count)
             {
-                bool columnWillOverflow = currentLineLength + column.width > RelatorioPrefs.PAGE_LINE_LENGTH;
-                if (columnWillOverflow)
-                {
-                    // break the column into a new line
-                    row += '\n';
-                    currentLineLength = 0;
-                }
-
-                // draw the column and update new line length
-                col = GetColumnContent(column);
-                col = Truncate(col, column.width - 1).PadRight(column.width); // -1 adds the column separator
-                row += col;
-                currentLineLength += col.Length; // track how long the current line is
+                throw new ArgumentException("Tamanho do array 'rowData' não é igual a quantidade de colunas");
             }
-            return row;
+
+            string row = "";
+            string line = "";
+            for (int i = 0; i < columns.Count; i++)
+            {
+                TableColumn column = columns[i];
+                bool lineOverflowing = line.Length + column.width > RelatorioPrefs.PAGE_LINE_LENGTH;
+                if (lineOverflowing)
+                {
+                    row += line + '\n';
+                    line = "";
+                }
+                string col = Truncate(rowData[i], column.width - 1).PadRight(column.width); // -1 para adicionar espaço entre colunas
+                line += col;
+            }
+            row += line;
+            Debugger.Break();
+
+            return line;
             string Truncate(string str, int size) => string.Concat(str.Take(size));
         }
         private string WriteTableHeader()
         {
-            return ConcatTableColumns(column => column.name); // expression gets column name and concatenates it with line wrapping
+            string[] rowData = columns.Select((TableColumn c) => c.name).ToArray();
+            return BuildTableRow(rowData); // expression gets column name and concatenates it with line wrapping
         }
 
         private string WritePageHeader(string pageTitle, int pageNumber)
@@ -88,28 +92,28 @@ namespace ProjetoCadastro2
             return header;
         }
 
-        private string WritePageRow(int rowIndex)
+        private string WriteRow(int rowIndex)
         {
             DataRow pageRow = dataTable.Rows[rowIndex];
-            return ConcatTableColumns(column => pageRow[column.id].ToString()) + '\n'; // expression gets content in the table cell and concatenates it with line wrapping
+            string[] rowData = columns.Select((TableColumn c) => pageRow[c.id].ToString()).ToArray();
+            return BuildTableRow(rowData) + '\n'; // expression gets content in the table cell and concatenates it with line wrapping
         }
 
         int currentIndex = 0;
         private string WritePage(string pageTitle, int pageNumber)
         {
+            bool ReachedEndOfPage(int line) => line > RelatorioPrefs.PAGE_LINE_COUNT || currentIndex >= dataTable.Rows.Count;
             string page = WritePageHeader(pageTitle, pageNumber);
             string newRow;
             int currentLine = GetStringLineCount(page) + 1;
-            while (!ReachedEndOfPage())
+            while (!ReachedEndOfPage(currentLine))
             {
-                newRow = WritePageRow(currentIndex++);
-                
-                page += newRow;
+                newRow = WriteRow(currentIndex++);
                 currentLine += GetStringLineCount(newRow);
+                page += newRow;
             }
             
             return page;
-            bool ReachedEndOfPage() => currentLine > RelatorioPrefs.PAGE_LINE_COUNT || currentIndex >= dataTable.Rows.Count;
         }
 
         /// <summary>
