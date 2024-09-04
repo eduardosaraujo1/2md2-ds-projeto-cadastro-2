@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace ProjetoCadastro2
 {
-    public partial class frmPesquisaAdv : Form
+    public partial class frmPesquisa : Form
     {
         private BindingSource source { get; set; }
-        public frmPesquisaAdv(BindingSource source)
+        public frmPesquisa(BindingSource source)
         {
-            this.source = source;
             InitializeComponent();
+            this.source = source;
         }
 
         private void frmPesquisaAdv_Load(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace ProjetoCadastro2
         {
             // column index sempre 0 para ser coluna de ID
             int newPos = (int)dataGridView[0, e.RowIndex].Value;
-            source.Filter = "";
+            source.Filter = string.Empty;
             source.Position = newPos - 1;
             Close();
         }
@@ -59,25 +59,21 @@ namespace ProjetoCadastro2
             if (string.IsNullOrEmpty(query))
             {
                 source.Filter = string.Empty;
-                return;
+            } else
+            {
+                source.Filter = $"{GetColumnName()} like '%{query}%'";
             }
-
-            source.Filter = $"{GetColumnName()} like '%{query}%'"; 
         }
 
         private void btnSair_onclick(object sender, EventArgs e)
         {
-            source.Filter = "";
+            source.Filter = string.Empty;
             Close();
         }
 
-        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            char key = e.KeyChar ;
-            if (key == '\r')
-            {
-                RunQuery();
-            }
+            RunQuery();
         }
     }
 }

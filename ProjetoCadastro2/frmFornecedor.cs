@@ -93,7 +93,7 @@ namespace ProjetoCadastro2
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            frmPesquisaAdv searchForm = new frmPesquisaAdv(fornecedorBindingSource);
+            frmPesquisa searchForm = new frmPesquisa(fornecedorBindingSource);
             searchForm.ShowDialog();
             fornecedorBindingSource.Filter = string.Empty;
         }

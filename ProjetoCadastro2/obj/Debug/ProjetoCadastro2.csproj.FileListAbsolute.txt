@@ -42,4 +42,4 @@ C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\Proj
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.exe
 C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.pdb
-C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmPesquisaAdv.resources
+C:\Users\user\Desktop\2md2-ds-projeto-cadastro-2\ProjetoCadastro2\obj\Debug\ProjetoCadastro2.frmPesquisa.resources
