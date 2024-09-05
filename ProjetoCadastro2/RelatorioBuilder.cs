@@ -9,80 +9,94 @@ using System.Windows.Forms;
 
 namespace ProjetoCadastro2
 {
-    public class RelatorioBuilder
+    public struct RelatorioTableColumn
     {
-        private readonly List<TableColumn> columns;
-        //private readonly BindingSource bindingSource;
+        // propreties
+        public string id;
+        public string name;
+        public int width;
+    }
 
-        private readonly DataTable dataTable;
-        struct TableColumn
-        {
-            // propreties
-            public string id;
-            public string name;
-            public int width;
-        }
-        
-        public RelatorioBuilder(BindingSource source)
-        {
-            columns = new List<TableColumn>();
+    public class RelatorioTableColumnList
+    {
+        public List<RelatorioTableColumn> ColumnList { get; private set; } = new List<RelatorioTableColumn>();
 
-            // database
-            bdMainDataSet dataset = source.DataSource as bdMainDataSet;
-            dataTable = dataset.Tables[source.DataMember];
-        }
-
-        public void AddColumn(string columnId, string columnName, int columnWidth)
+        public void Add(string columnId, string columnName, int columnWidth)
         {
-            TableColumn column = new TableColumn()
+            RelatorioTableColumn column = new RelatorioTableColumn()
             {
                 id = columnId,
                 name = columnName,
                 width = Math.Min(columnWidth, RelatorioPrefs.PAGE_LINE_LENGTH)
             };
-            columns.Add(column);
+            ColumnList.Add(column);
+        }
+    }
+    public class RelatorioBuilder
+    {
+        public RelatorioTableColumnList ColumnList { get; } = new RelatorioTableColumnList();
+        //private readonly List<TableColumn> columns;
+        //private readonly BindingSource bindingSource;
+        private readonly DataTable dataTable;
+        private int currentRowIndex = 0;
+        
+        public RelatorioBuilder(BindingSource source)
+        {
+            // database read
+            bdMainDataSet dataset = source.DataSource as bdMainDataSet;
+            dataTable = dataset.Tables[source.DataMember];
         }
 
+
         /// <summary>
-        /// Stringifies a table row by concatenating them side by side
+        /// Cria uma linha para uma tabela colocando todas as propriedades especificadas nas colunas corretas
         /// </summary>
-        /// <param name="GetColumnContent">Expression modifies what will be concatenated in the string, could be column name or column data</param>
-        /// <returns></returns>
+        /// <param name="rowData">Lista dos valores a colocar em cada coluna. Tamanho desse array deve ser o mesmo que o da lista de colunas (columns)</param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns>String formatada para ser colocada em uma tabela</returns>
         private string BuildTableRow(string[] rowData)
         {
-            if (rowData.Length != columns.Count)
+            if (rowData.Length != ColumnList.ColumnList.Count)
             {
                 throw new ArgumentException("Tamanho do array 'rowData' não é igual a quantidade de colunas");
             }
 
             string row = "";
             string line = "";
-            for (int i = 0; i < columns.Count; i++)
+            for (int i = 0; i < ColumnList.ColumnList.Count; i++)
             {
-                TableColumn column = columns[i];
-                bool lineOverflowing = line.Length + column.width > RelatorioPrefs.PAGE_LINE_LENGTH;
-                if (lineOverflowing)
+                RelatorioTableColumn column = ColumnList.ColumnList[i];
+
+                bool lineWillOverflow = line.Length + column.width > RelatorioPrefs.PAGE_LINE_LENGTH;
+                if (lineWillOverflow)
                 {
                     row += line + '\n';
                     line = "";
                 }
-                string col = Truncate(rowData[i], column.width - 1).PadRight(column.width); // -1 para adicionar espaço entre colunas
+
+                string col = Truncate(rowData[i], column.width).PadRight(column.width + 1); // +1 para adicionar espaço entre colunas
                 line += col;
             }
             row += line;
-            Debugger.Break();
 
-            return line;
+            return row;
+            // 'Truncate' do inglês, em português fica "Truncar" que significa "Cortar". Função pega a string e coloca ela em tamanho definido
             string Truncate(string str, int size) => string.Concat(str.Take(size));
-        }
-        private string WriteTableHeader()
-        {
-            string[] rowData = columns.Select((TableColumn c) => c.name).ToArray();
-            return BuildTableRow(rowData); // expression gets column name and concatenates it with line wrapping
         }
 
         private string WritePageHeader(string pageTitle, int pageNumber)
         {
+            string WriteTableHeader()
+            {
+                List<string> rowData = new List<string>();
+
+                foreach (RelatorioTableColumn c in ColumnList.ColumnList)
+                {
+                    rowData.Add(c.name);
+                }
+                return BuildTableRow(rowData.ToArray());
+            }
+
             string header = "ETEC ADOLPHO BEREZIN\n";
             header += pageTitle;
             header += $"Pág: {pageNumber:D2}".PadLeft(RelatorioPrefs.PAGE_LINE_LENGTH - pageTitle.Length) + '\n'; // PadLeft para alinhar pág a direita
@@ -95,22 +109,33 @@ namespace ProjetoCadastro2
         private string WriteRow(int rowIndex)
         {
             DataRow pageRow = dataTable.Rows[rowIndex];
-            string[] rowData = columns.Select((TableColumn c) => pageRow[c.id].ToString()).ToArray();
-            return BuildTableRow(rowData) + '\n'; // expression gets content in the table cell and concatenates it with line wrapping
+            List<string> rowData = new List<string>();
+
+            foreach (RelatorioTableColumn c in ColumnList.ColumnList)
+            {
+                rowData.Add(pageRow[c.id].ToString());
+            }
+
+            return BuildTableRow(rowData.ToArray()) + '\n';
         }
 
-        int currentIndex = 0;
         private string WritePage(string pageTitle, int pageNumber)
         {
-            bool ReachedEndOfPage(int line) => line > RelatorioPrefs.PAGE_LINE_COUNT || currentIndex >= dataTable.Rows.Count;
-            string page = WritePageHeader(pageTitle, pageNumber);
-            string newRow;
-            int currentLine = GetStringLineCount(page) + 1;
-            while (!ReachedEndOfPage(currentLine))
+            int GetStringLineCount(string text)
             {
-                newRow = WriteRow(currentIndex++);
-                currentLine += GetStringLineCount(newRow);
-                page += newRow;
+                return text.Split('\n').Length;
+            }
+            bool ReachedEnd(string paramPage)
+            {
+                bool paginaCheia = GetStringLineCount(paramPage) > RelatorioPrefs.PAGE_LINE_COUNT;
+                bool acabouAsLinhas = currentRowIndex >= dataTable.Rows.Count;
+                return paginaCheia || acabouAsLinhas;
+            }
+
+            string page = WritePageHeader(pageTitle, pageNumber);
+            while (!ReachedEnd(page))
+            {
+                page += WriteRow(currentRowIndex++);
             }
             
             return page;
@@ -125,24 +150,15 @@ namespace ProjetoCadastro2
             List<string> pages = new List<string>();
             string page;
             int pageNumber = 1;
-            // do while not written all the rows in the dataTable
-            while (currentIndex < dataTable.Rows.Count)
+            // while not written out all the rows in the dataTable
+            while (currentRowIndex < dataTable.Rows.Count)
             {
                 page = WritePage(title, pageNumber++);
                 pages.Add(page);
             }
+            currentRowIndex = 0; // reset para Write poder ser executado novamente caso necessário
 
             return pages.ToArray();
-        }
-
-        static int GetStringLineCount(string text)
-        {
-            int count = 0;
-            foreach (char c in text)
-            {
-                if (c == '\n') count++; 
-            }
-            return count; 
         }
     }
 }

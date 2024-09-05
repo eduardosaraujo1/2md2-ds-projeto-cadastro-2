@@ -84,10 +84,10 @@ namespace ProjetoCadastro2
             // gerando relatório
             usuarioTableAdapter.Fill(bdMainDataSet.usuario);
             RelatorioBuilder relatorio = new RelatorioBuilder(usuarioSource);
-            relatorio.AddColumn("Id", "Código", 7);
-            relatorio.AddColumn("nm_usuario", "Nome", 35);
-            relatorio.AddColumn("sg_nivel", "Nível", 6);
-            relatorio.AddColumn("nm_login", "Login", 20);
+            relatorio.ColumnList.Add("Id", "Código", 7);
+            relatorio.ColumnList.Add("nm_usuario", "Nome", 35);
+            relatorio.ColumnList.Add("sg_nivel", "Nível", 6);
+            relatorio.ColumnList.Add("nm_login", "Login", 20);
             string[] pages = relatorio.Write("Relatório de Usuários");
             StartPrinting(pages);
         }
@@ -97,15 +97,15 @@ namespace ProjetoCadastro2
             // gerando relatório
             clienteTableAdapter.Fill(bdMainDataSet.cliente);
             RelatorioBuilder relatorio = new RelatorioBuilder(clienteSource);
-            relatorio.AddColumn("Id", "Código", 7);
-            relatorio.AddColumn("nm_cliente", "Nome", 35);
-            relatorio.AddColumn("nr_telefone", "Telefone", 15);
-            relatorio.AddColumn("email", "E-mail", 30);
-            relatorio.AddColumn("cd_cep", "CEP", 10);
-            relatorio.AddColumn("nm_cidade", "Cidade", 25);
-            relatorio.AddColumn("sg_estado", "Estado", 7);
-            relatorio.AddColumn("cd_cpf", "CPF", 15);
-            relatorio.AddColumn("cd_rg", "RG", 10);
+            relatorio.ColumnList.Add("Id", "Código", 7);
+            relatorio.ColumnList.Add("nm_cliente", "Nome", 35);
+            relatorio.ColumnList.Add("nr_telefone", "Telefone", 15);
+            relatorio.ColumnList.Add("email", "E-mail", 30);
+            relatorio.ColumnList.Add("cd_cep", "CEP", 10);
+            relatorio.ColumnList.Add("nm_cidade", "Cidade", 25);
+            relatorio.ColumnList.Add("sg_estado", "Estado", 7);
+            relatorio.ColumnList.Add("cd_cpf", "CPF", 15);
+            relatorio.ColumnList.Add("cd_rg", "RG", 10);
             string[] pages = relatorio.Write("Relatório de Clientes");
             StartPrinting(pages);
         }
@@ -115,14 +115,14 @@ namespace ProjetoCadastro2
             // gerando relatório
             fornecedorTableAdapter.Fill(bdMainDataSet.fornecedor);
             RelatorioBuilder relatorio = new RelatorioBuilder(fornecedorSource);
-            relatorio.AddColumn("Id", "Código", 7);
-            relatorio.AddColumn("nm_fornecedor", "Nome", 35);
-            relatorio.AddColumn("cd_cep", "CEP", 10);
-            relatorio.AddColumn("nm_cidade", "Cidade", 25);
-            relatorio.AddColumn("nm_bairro", "Bairro", 25);
-            relatorio.AddColumn("sg_estado", "Estado", 7);
-            relatorio.AddColumn("cd_cnpj", "CNPJ", 20);
-            relatorio.AddColumn("cd_inscr_estadual", "Inscrição Estadual", 20);
+            relatorio.ColumnList.Add("Id", "Código", 7);
+            relatorio.ColumnList.Add("nm_fornecedor", "Nome", 35);
+            relatorio.ColumnList.Add("cd_cep", "CEP", 10);
+            relatorio.ColumnList.Add("nm_cidade", "Cidade", 25);
+            relatorio.ColumnList.Add("nm_bairro", "Bairro", 25);
+            relatorio.ColumnList.Add("sg_estado", "Estado", 7);
+            relatorio.ColumnList.Add("cd_cnpj", "CNPJ", 20);
+            relatorio.ColumnList.Add("cd_inscr_estadual", "Inscrição Estadual", 20);
             string[] pages =  relatorio.Write("Relatório de Fornecedores");
             StartPrinting(pages);
 
