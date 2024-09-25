@@ -392,7 +392,6 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(84, 23);
             this.txtCep.TabIndex = 8;
-            this.txtCep.Text = "42423423";
             this.txtCep.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
             // txtEstado
