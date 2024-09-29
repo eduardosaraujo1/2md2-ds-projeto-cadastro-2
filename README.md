@@ -4,9 +4,9 @@ Aluno: Eduardo Soares e Araújo <br>
 Curso: 2MD2<br>
 Orientadores: Oswaldo Luiz e Joelma Lucia Sartori<br>
 
-# Mudanças da V2
+# Mudanças presentes na versão 2
 
-Versão 2: O código foi reescrito devído a desorganização do uso de orientação a objeto do projeto anterior, que utilizava o objeto de classe `LogicaCadastro` para gerenciar as telas. No lugar, a utilização de duas classes deveria ter sido utilizado: gerenciar todos os dados cadastrados (Storage) e gerenciar o registro atual (posição, alterações e exclusões). Essa preocupação não estará presente no novo sistema, pois essa já utiliza essas classes na forma de DataSets e BindingSources.
+O código foi reescrito devído a desorganização do uso de orientação a objeto do projeto anterior, que utilizava o objeto de classe `LogicaCadastro` para gerenciar as telas. No lugar, a utilização de duas classes deveria ter sido utilizado: gerenciar todos os dados cadastrados (Storage) e gerenciar o registro atual (posição, alterações e exclusões). Essa preocupação não estará presente no novo sistema, pois essa já utiliza essas classes na forma de DataSets e BindingSources.
 
 # Aspectos do sistema
 
@@ -30,7 +30,7 @@ Existe a funcionalidade de gerar um relatório para impressão: uma tabela feita
 - Fonte Courier New, 10pt 
 - Folha A4, comportando 68 linhas cada linha com 84 caracteres
 - Margens de 50 pixels de distancia da ponta superior esquerda
-Estilo do Header:
+- *Estilo do Header:*
 ```
 ETEC ADOLPHO BEREZIN
 Relatório de <TITULO>                                                        Pág: 00
